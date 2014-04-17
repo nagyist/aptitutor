@@ -28,7 +28,10 @@ var salt = bcrypt.genSaltSync(10);
 
 //server.listen(8002,"192.168.126.29")
 
-app.listen(8002, "192.168.126.29");
+var port = Number(process.env.PORT || 5000);
+app.listen(port, function() {
+  console.log("Listening on " + port);
+});
 app.use(express.cookieParser());
 app.use(express.static(__dirname + '/public'));
 app.use(express.session({secret: '1234567890QWERTY'}));
