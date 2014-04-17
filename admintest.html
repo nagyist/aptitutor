@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+
+    <script>
+        //alert(document.cookie);
+    </script>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    
+
+    <title>Aptitutor</title>
+
+    
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="jumbotron.css" rel="stylesheet">
+
+  </head>
+
+  <body scrolling="true">
+
+    <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+
+         <a class="navbar-brand" href="#" style="position:fixed;top:3px"><font color="white" size="6px">Aptitutor</font></a>
+        </div>
+        
+        <div class="navbar-collapse collapse" style="position:fixed;top:-5px;left:250px">
+          <ul class="nav navbar-nav">
+            <li><a href="#"><h4>Rankings<h4></a></li>
+            <li><a href="#about"><h4>Archive</h4></a></li>
+
+            <li><a href="#contact"><h4>Contact<h4></a></li>
+          </ul>
+          </div>
+
+
+          <div class="navbar-collapse collapse">
+          <form class="navbar-form navbar-right" role="form" method = "post" action = "/loginform">
+            <div class="form-group">
+              
+            </div>
+            <div class="form-group">
+
+              <a href="#" style="text-decoration:none"><font color="white" size="6px">Admin&nbsp&nbsp&nbsp</font></a>
+            </div>
+
+            <button type="submit" class="btn btn-lg btn-danger">Sign out</button>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <div style="position:absolute;left:520px;top:75px">
+    	<h2><u>Add Contest</h2>
+    </div>
+
+ 	<div class="col-sm-4" style="position:fixed;top:250px;left:1px;width:300px">
+        <div class="list-group" align="center">
+
+            <a href="#" class="list-group-item active">Question 1-5</a>
+            <a href="#" class="list-group-item">Question 6-10</a>
+            <a href="#" class="list-group-item">Question 11-15</a>
+            <a href="#" class="list-group-item">Question 16-20</a>
+            <a href="#" class="list-group-item">Question 21-25</a>
+        </div>
+    </div>
+    <form id = "Questions" method = "POST" action = "/addContest">
+    <div style="position:absolute;left:520px;top:170px;width:500px">
+    	
+    		<h4>Q1.</h4>
+    		<textarea rows="4" cols="60" name = "Q1"></textarea>
+    		<br>
+    		<h4>Options:-</h4>
+    		<textarea rows="1" cols="20" name = "Q1111"></textarea><br>
+    		<textarea rows="1" cols="20" name = "Q1212"></textarea><br>
+    		<textarea rows="1" cols="20" name = "Q1313"></textarea><br>
+    		<textarea rows="1" cols="20" name = "Q1414"></textarea><br>
+    		<br>
+    		
+    	
+    	
+    	<hr>
+    	
+    		<h4>Q2.</h4>
+    		<textarea rows="4" cols="60" name = "Q2"></textarea>
+    		<br>
+    		<h4>Options:-</h4>
+    		<textarea rows="1" cols="20" name = "Q2121"></textarea><br>
+    		<textarea rows="1" cols="20" name = "Q2222"></textarea><br>
+    		<textarea rows="1" cols="20" name = "Q2323"></textarea><br>
+    		<textarea rows="1" cols="20" name = "Q2424"></textarea><br>
+    		<br>
+    		
+    	
+    	
+    	<hr>
+    	
+    		<h4>Q3.</h4>
+    		<textarea rows="4" cols="60" name = "Q3"></textarea>
+    		<br>
+    		<h4>Options:-</h4>
+    		<textarea rows="1" cols="20" name = "Q31"></textarea><br>
+    		<textarea rows="1" cols="20" name = "Q32"></textarea><br>
+    		<textarea rows="1" cols="20" name = "Q33"></textarea><br>
+    		<textarea rows="1" cols="20" name = "Q34"></textarea><br>
+    		<br>
+    		
+    	
+    	<hr>
+    	
+    		<h4>Q4.</h4>
+    		<textarea rows="4" cols="60" name = "Q4"></textarea>
+            <br>
+            <h4>Options:-</h4>
+            <textarea rows="1" cols="20" name = "Q41"></textarea><br>
+            <textarea rows="1" cols="20" name = "Q42"></textarea><br>
+            <textarea rows="1" cols="20" name = "Q43"></textarea><br>
+            <textarea rows="1" cols="20" name = "Q44"></textarea><br>
+            <br>
+    		
+    	
+    	<hr>
+    	
+    		<h4>Q5.</h4>
+    		<textarea rows="4" cols="60" name = "Q5"></textarea>
+            <br>
+            <h4>Options:-</h4>
+            <textarea rows="1" cols="20" name = "Q51"></textarea><br>
+            <textarea rows="1" cols="20" name = "Q52"></textarea><br>
+            <textarea rows="1" cols="20" name = "Q53"></textarea><br>
+            <textarea rows="1" cols="20" name = "Q54"></textarea><br>
+            <br>
+    		
+    	
+    	<hr>
+    	
+    		<h4>Q6.</h4>
+    		<textarea rows="4" cols="60" name = "Q6"></textarea>
+            <br>
+            <h4>Options:-</h4>
+            <textarea rows="1" cols="20" name = "Q61"></textarea><br>
+            <textarea rows="1" cols="20" name = "Q62"></textarea><br>
+            <textarea rows="1" cols="20" name = "Q63"></textarea><br>
+            <textarea rows="1" cols="20" name = "Q64"></textarea><br>
+            <br>
+    		
+    	
+    	<hr>
+    	
+    		<h4>Q7.</h4>
+    		<textarea rows="4" cols="60" name = "Q7"></textarea>
+            <br>
+            <h4>Options:-</h4>
+            <textarea rows="1" cols="20" name = "Q71"></textarea><br>
+            <textarea rows="1" cols="20" name = "Q72"></textarea><br>
+            <textarea rows="1" cols="20" name = "Q73"></textarea><br>
+            <textarea rows="1" cols="20" name = "Q74"></textarea><br>
+            <br>
+    		
+    	
+    	<hr>
+    	
+    		<h4>Q8.</h4>
+    		<textarea rows="4" cols="60" name = "Q8"></textarea>
+            <br>
+            <h4>Options:-</h4>
+            <textarea rows="1" cols="20" name = "Q81"></textarea><br>
+            <textarea rows="1" cols="20" name = "Q82"></textarea><br>
+            <textarea rows="1" cols="20" name = "Q83"></textarea><br>
+            <textarea rows="1" cols="20" name = "Q84"></textarea><br>
+            <br>
+    		
+    	
+    	<hr>
+    	
+    		<h4>Q9.</h4>
+    		<textarea rows="4" cols="60" name = "Q9"></textarea>
+            <br>
+            <h4>Options:-</h4>
+            <textarea rows="1" cols="20" name = "Q91"></textarea><br>
+            <textarea rows="1" cols="20" name = "Q92"></textarea><br>
+            <textarea rows="1" cols="20" name = "Q93"></textarea><br>
+            <textarea rows="1" cols="20" name = "Q94"></textarea><br>
+            <br>
+    		
+    	
+    	<hr>
+    	
+    		<h4>Q10.</h4>
+    		<textarea rows="4" cols="60" name = "Q10"></textarea>
+            <br>
+            <h4>Options:-</h4>
+            <textarea rows="1" cols="20" name = "Q101"></textarea><br>
+            <textarea rows="1" cols="20" name = "Q102"></textarea><br>
+            <textarea rows="1" cols="20" name = "Q103"></textarea><br>
+            <textarea rows="1" cols="20" name = "Q104"></textarea><br>
+            <br>
+    		
+    	
+    	<hr>
+    	
+    		<h4>Q11.</h4>
+    		<textarea rows="4" cols="60" name = "Q11"></textarea>
+            <br>
+            <h4>Options:-</h4>
+            <textarea rows="1" cols="20" name = "Q111"></textarea><br>
+            <textarea rows="1" cols="20" name = "Q112"></textarea><br>
+            <textarea rows="1" cols="20" name = "Q113"></textarea><br>
+            <textarea rows="1" cols="20" name = "Q114"></textarea><br>
+            <br>
+    		
+    	
+    	<hr>
+    	
+    		<h4>Q12.</h4>
+    		<textarea rows="4" cols="60" name = "Q12"></textarea>
+            <br>
+            <h4>Options:-</h4>
+            <textarea rows="1" cols="20" name = "Q121"></textarea><br>
+            <textarea rows="1" cols="20" name = "Q122"></textarea><br>
+            <textarea rows="1" cols="20" name = "Q123"></textarea><br>
+            <textarea rows="1" cols="20" name = "Q124"></textarea><br>
+            <br>
+    		
+    	
+    	<hr>
+    	
+    		<h4>Q13.</h4>
+    		<textarea rows="4" cols="60" name = "Q13"></textarea>
+            <br>
+            <h4>Options:-</h4>
+            <textarea rows="1" cols="20" name = "Q131"></textarea><br>
+            <textarea rows="1" cols="20" name = "Q132"></textarea><br>
+            <textarea rows="1" cols="20" name = "Q133"></textarea><br>
+            <textarea rows="1" cols="20" name = "Q134"></textarea><br>
+            <br>
+    		
+    	
+    	<hr>
+    		<h4>Q14.</h4>
+    		<textarea rows="4" cols="60" name = "Q14"></textarea>
+            <br>
+            <h4>Options:-</h4>
+            <textarea rows="1" cols="20" name = "Q141"></textarea><br>
+            <textarea rows="1" cols="20" name = "Q142"></textarea><br>
+            <textarea rows="1" cols="20" name = "Q143"></textarea><br>
+            <textarea rows="1" cols="20" name = "Q144"></textarea><br>
+            <br>
+    		
+    	
+    	<hr>
+    	
+    		<h4>Q15.</h4>
+    		<textarea rows="4" cols="60" name = "Q15"></textarea>
+            <br>
+            <h4>Options:-</h4>
+            <textarea rows="1" cols="20" name = "Q151"></textarea><br>
+            <textarea rows="1" cols="20" name = "Q152"></textarea><br>
+            <textarea rows="1" cols="20" name = "Q153"></textarea><br>
+            <textarea rows="1" cols="20" name = "Q154"></textarea><br>
+            <br>
+    		
+    	
+    	<hr>
+    		<h4>Q16.</h4>
+    		<textarea rows="4" cols="60" name = "Q16"></textarea>
+            <br>
+            <h4>Options:-</h4>
+            <textarea rows="1" cols="20" name = "Q161"></textarea><br>
+            <textarea rows="1" cols="20" name = "Q162"></textarea><br>
+            <textarea rows="1" cols="20" name = "Q163"></textarea><br>
+            <textarea rows="1" cols="20" name = "Q164"></textarea><br>
+            <br>
+    		
+    	
+    	<hr>
+    	
+    		<h4>Q17.</h4>
+    		<textarea rows="4" cols="60" name = "Q17"></textarea>
+            <br>
+            <h4>Options:-</h4>
+            <textarea rows="1" cols="20" name = "Q171"></textarea><br>
+            <textarea rows="1" cols="20" name = "Q172"></textarea><br>
+            <textarea rows="1" cols="20" name = "Q173"></textarea><br>
+            <textarea rows="1" cols="20" name = "Q174"></textarea><br>
+            <br>
+    		
+    	
+    	<hr>
+    	
+    		<h4>Q18.</h4>
+    		<textarea rows="4" cols="60" name = "Q18"></textarea>
+            <br>
+            <h4>Options:-</h4>
+            <textarea rows="1" cols="20" name = "Q181"></textarea><br>
+            <textarea rows="1" cols="20" name = "Q182"></textarea><br>
+            <textarea rows="1" cols="20" name = "Q183"></textarea><br>
+            <textarea rows="1" cols="20" name = "Q184"></textarea><br>
+            <br>
+    		
+    	<hr>
+    	
+    		<h4>Q19.</h4>
+    		<textarea rows="4" cols="60" name = "Q19"></textarea>
+            <br>
+            <h4>Options:-</h4>
+            <textarea rows="1" cols="20" name = "Q191"></textarea><br>
+            <textarea rows="1" cols="20" name = "Q192"></textarea><br>
+            <textarea rows="1" cols="20" name = "Q193"></textarea><br>
+            <textarea rows="1" cols="20" name = "Q194"></textarea><br>
+            <br>
+    		
+    	
+    	<hr>
+    		<h4>Q20.</h4>
+    		<textarea rows="4" cols="60" name = "Q20"></textarea>
+            <br>
+            <h4>Options:-</h4>
+            <textarea rows="1" cols="20" name = "Q201"></textarea><br>
+            <textarea rows="1" cols="20" name = "Q202"></textarea><br>
+            <textarea rows="1" cols="20" name = "Q203"></textarea><br>
+            <textarea rows="1" cols="20" name = "Q204"></textarea><br>
+            <br>
+    		
+    	
+    	<hr>
+    	
+    		<h4>Q21.</h4>
+    		<textarea rows="4" cols="60" name = "Q21"></textarea>
+            <br>
+            <h4>Options:-</h4>
+            <textarea rows="1" cols="20" name = "Q211"></textarea><br>
+            <textarea rows="1" cols="20" name = "Q212"></textarea><br>
+            <textarea rows="1" cols="20" name = "Q213"></textarea><br>
+            <textarea rows="1" cols="20" name = "Q214"></textarea><br>
+            <br>
+    		
+    	
+    	<hr>
+    	
+    		<h4>Q22.</h4>
+    		<textarea rows="4" cols="60" name = "Q22"></textarea>
+            <br>
+            <h4>Options:-</h4>
+            <textarea rows="1" cols="20" name = "Q221"></textarea><br>
+            <textarea rows="1" cols="20" name = "Q222"></textarea><br>
+            <textarea rows="1" cols="20" name = "Q223"></textarea><br>
+            <textarea rows="1" cols="20" name = "Q224"></textarea><br>
+            <br>
+    		
+    	
+    	<hr>
+    		<h4>Q23.</h4>
+    		<textarea rows="4" cols="60" name = "Q23"></textarea>
+            <br>
+            <h4>Options:-</h4>
+            <textarea rows="1" cols="20" name = "Q231"></textarea><br>
+            <textarea rows="1" cols="20" name = "Q232"></textarea><br>
+            <textarea rows="1" cols="20" name = "Q233"></textarea><br>
+            <textarea rows="1" cols="20" name = "Q234"></textarea><br>
+            <br>
+    		
+    	
+    	<hr>
+    	
+    		<h4>Q24.</h4>
+    		<textarea rows="4" cols="60" name = "Q24"></textarea>
+            <br>
+            <h4>Options:-</h4>
+            <textarea rows="1" cols="20" name = "Q241"></textarea><br>
+            <textarea rows="1" cols="20" name = "Q242"></textarea><br>
+            <textarea rows="1" cols="20" name = "Q243"></textarea><br>
+            <textarea rows="1" cols="20" name = "Q244"></textarea><br>
+            <br>
+    		
+    	
+    	<hr>
+    	
+    		<h4>Q25.</h4>
+    		<textarea rows="4" cols="60" name = "Q25"></textarea>
+            <br>
+            <h4>Options:-</h4>
+            <textarea rows="1" cols="20" name = "Q251"></textarea><br>
+            <textarea rows="1" cols="20" name = "Q252"></textarea><br>
+            <textarea rows="1" cols="20" name = "Q253"></textarea><br>
+            <textarea rows="1" cols="20" name = "Q254"></textarea><br>
+            <br>
+    	<hr>
+
+            <h4>Name</h4>
+            <textarea rows="1" cols="60" name = "name"></textarea>
+            <hr>
+            <h4>Answers</h4>
+            <textarea rows="1" cols="60" name = "answers"></textarea>
+        <hr>
+
+            <h4>STime</h4>
+            <textarea rows="1" cols="30" name = "stime"></textarea>
+        <hr>
+            <h4>ETime</h4>
+            <textarea rows="1" cols="30" name = "etime"></textarea>
+            <hr>
+            <h4>Contest NO.</h4>
+            <textarea rows="1" cols="5" name = "Contest No."></textarea>
+    	
+    	<hr>
+        <input type="submit" class="btn btn-primary">
+    </div>
+    </form>
+    <div class="panel panel-info" style="position:fixed;left:1px;top:100px;width:300px">
+            <div class="panel-heading" align="center">
+              <h3 class="panel-title">Time Remaining</h3>
+            </div>
+            <div class="panel-body" align="center">
+              00:00:00
+            </div>
+    </div>
+</html>

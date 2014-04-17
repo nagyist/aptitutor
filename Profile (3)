@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="shortcut icon" href="../../assets/ico/favicon.ico">
+
+    <title>Aptitutor</title>
+
+    <link href="../../css/bootstrap.min.css" rel="stylesheet">
+
+    
+    
+
+  </head>
+
+  <body>
+
+    <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="#" style="position:fixed;top:3px"><font color="white" size="6px">Aptitutor</font></a>
+         
+        </div>
+        
+        <div class="navbar-collapse collapse" style="position:fixed;top:-5px;left:20%">
+          <ul class="nav navbar-nav">
+            <li><a href="#"><h4>Rankings<h4></a></li>
+            <li><a href="#about"><h4>Archive</h4></a></li>
+
+            <li><a href="#contact"><h4>Contact<h4></a></li>
+          </ul>
+        </div>
+
+        <div class="navbar-collapse collapse">
+          <form class="navbar-form navbar-right" role="form" method = "post" action = "/loginform">
+            <div class="form-group">
+              <input id = "nick" type="text" placeholder="Nickname" class="form-control" name = "nick">
+            </div>
+            <div class="form-group">
+
+              <input id = "pass" type="password" placeholder="Password" class="form-control" name = "pass">
+            </div>
+            <button type="submit" class="btn btn-lg btn-success">Sign in</button>
+          </form>
+        </div>
+      </div>
+    </div>
+
+
+    <div class="container-fluid">
+      <div class="row">
+
+        <div class="col-sm-15 col-sm-offset-10 col-md-0 col-md-offset-2 main" style="position:absolute;top:400px;left:-150px;width:900px">
+          
+
+          <h2 class="sub-header" align="center"><u>User Statistics</h2></u>
+          <div class="table-responsive">
+            <table class="table table-striped">
+            <col width="200">
+            <col width="200">
+            <col width="200">
+            <col width="200">
+            <col width="200">
+            <col width="10">
+              <thead>
+                <tr>
+                  <th>S.No.</th>
+                  <th>Contest</th>
+                  <th>Rank</th>
+                  <th>Attempted</th>
+                  <th>Solved</th>
+                  <th>Rating Change</th>
+                </tr>
+              </thead>
+              <tbody>
+
+                <tr>
+                  <td style="background:#F0F0F0;">1</td>
+                  <td style="background:#F0F0F0;">11</td>
+                  <td style="background:#F0F0F0;">11</td>
+                  <td style="background:#F0F0F0;">11</td>
+                  <td style="background:#F0F0F0;">11</td>
+                  <td style="background:#F0F0F0;">11</td>
+                </tr>
+                <tr>
+                  <td>1</td>
+                  <td>11</td>
+                  <td>11</td>
+                  <td>11</td>
+                  <td>11</td>
+                  <td>11</td>
+                </tr>
+                 <tr>
+                  <td style="background:#F0F0F0;">1</td>
+                  <td style="background:#F0F0F0;">11</td>
+                  <td style="background:#F0F0F0;">11</td>
+                  <td style="background:#F0F0F0;">11</td>
+                  <td style="background:#F0F0F0;">11</td>
+                  <td style="background:#F0F0F0;">11</td>
+                </tr>
+                <tr>
+                  <td>1</td>
+                  <td>11</td>
+                  <td>11</td>
+                  <td>11</td>
+                  <td>11</td>
+                  <td>11</td>
+                </tr>
+                <tr>
+                  <td style="background:#F0F0F0;">1</td>
+                  <td style="background:#F0F0F0;">11</td>
+                  <td style="background:#F0F0F0;">11</td>
+                  <td style="background:#F0F0F0;">11</td>
+                  <td style="background:#F0F0F0;">11</td>
+                  <td style="background:#F0F0F0;">11</td>
+                </tr>
+                <tr>
+                  <td>1</td>
+                  <td>11</td>
+                  <td>11</td>
+                  <td>11</td>
+                  <td>11</td>
+                  <td>11</td>
+                </tr>
+                 <tr>
+                  <td style="background:#F0F0F0;">1</td>
+                  <td style="background:#F0F0F0;">11</td>
+                  <td style="background:#F0F0F0;">11</td>
+                  <td style="background:#F0F0F0;">11</td>
+                  <td style="background:#F0F0F0;">11</td>
+                  <td style="background:#F0F0F0;">11</td>
+                </tr>
+                <tr>
+                  <td>1</td>
+                  <td>11</td>
+                  <td>11</td>
+                  <td>11</td>
+                  <td>11</td>
+                  <td>11</td>
+                </tr>
+                <tr>
+                  <td style="background:#F0F0F0;">1</td>
+                  <td style="background:#F0F0F0;">11</td>
+                  <td style="background:#F0F0F0;">11</td>
+                  <td style="background:#F0F0F0;">11</td>
+                  <td style="background:#F0F0F0;">11</td>
+                  <td style="background:#F0F0F0;">11</td>
+                </tr>
+                <tr>
+                  <td>1</td>
+                  <td>11</td>
+                  <td>11</td>
+                  <td>11</td>
+                  <td>11</td>
+                  <td>11</td>
+                </tr>
+                <tr>
+                  <td style="background:#F0F0F0;">1</td>
+                  <td style="background:#F0F0F0;">11</td>
+                  <td style="background:#F0F0F0;">11</td>
+                  <td style="background:#F0F0F0;">11</td>
+                  <td style="background:#F0F0F0;">11</td>
+                  <td style="background:#F0F0F0;">11</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="panel panel-primary" style="position:fixed;left:1010px;top:90px;width:300px">
+            <div class="panel-heading" align="center">
+              <h3 class="panel-title">Upcoming Rounds</h3>
+            </div>
+            <div class="panel-body" align="center">
+              <a href="#" <h4><u>Practice Round 11, Div. 11</h4></u></a>
+            </div>
+    </div>
+
+    <div style="position:absolute;top:940px;left:300px">
+      <ul class ="pagination">        
+            <li class='disabled'><a href="#">1</a></li>
+            <li><a href="#">2</a></li>
+            <li><a href="#">3</a></li>
+            <li><a href="#">4</a></li>
+            <li><a href="#">5</a></li>
+            <li><a href="#">6</a></li>
+            <li><a href="#">7</a></li>
+            <li><a href="#">8</a></li>
+            <li><a href="#">9</a></li>
+            <li><a href="#">10</a></li>
+            <li><a href="#">Next</a></li>
+      <li><a href="#">Last</a></li>
+        </ul>
+    </div>
+
+    
+

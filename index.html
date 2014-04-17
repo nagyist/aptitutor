@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+  
+  <input type="hidden" id="refreshed" value="no">
+  <script type="text/javascript">
+  onload=function(){
+    var e=document.getElementById("refreshed");
+    if(e.value=="no")e.value="yes";
+    else{e.value="no";location.reload();}
+  }
+  
+  </script>
+  <script src = "timer.js"></script>
+  <head>
+
+    <style>
+      table,th,td{
+        border:1px solid gray;
+        border-collapse:collapse;
+        text-align:center;
+      }
+      th,td{
+        padding:5px;
+        text-align:center;
+      }
+    </style>
+
+    <script>
+        //alert(document.cookie);
+    </script>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    
+
+    <title>Aptitutor</title>
+
+   
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    
+
+  </head>
+
+  <body scroll = >
+    
+    <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a href = "/" class="navbar-brand" href="#" style="position:fixed;top:3px"><font color="white" size="6px">Aptitutor</font></a>
+         
+        </div>
+        
+        <div class="navbar-collapse collapse" style="position:fixed;top:-5px;left:250px">
+          <ul class="nav navbar-nav">
+            <li><a href="/ranking/page/1"><h4>Rankings<h4></a></li>
+            <li><a href="/past"><h4>Archive</h4></a></li>
+
+            <li><a href="/contest"><h4>Contests<h4></a></li>
+          </ul>
+        </div>
+
+        <div class="navbar-collapse collapse">
+          <form class="navbar-form navbar-right" role="form" method = "post" action = "/loginform">
+            <div class="form-group">
+              <input id = "nick" type="text" placeholder="Nickname" class="form-control" name = "nick">
+            </div>
+            <div class="form-group">
+
+              <input id = "pass" type="password" placeholder="Password" class="form-control" name = "pass">
+            </div>
+            <button type="submit" class="btn btn-lg btn-success">Sign in</button>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    
+
+    <div class="jumbotron">
+      <div class="container">
+        <h1>Aptitutor!</h1>
+        <p>Aptitutor is an aptitude assesment online platform which allows users to participate and compete in variuos online aptitude tests and evaluate their performance relative to other participants.<a href="/sample">Take a sample test...</a></p>
+        
+        <p><a href = "http://192.168.126.29:8002/register" class="btn btn-lg btn-danger" role="button">Get Started &raquo;</a></p>
+        </form>
+      </div>
+    </div>
+
+    
+    
+              
+
+    <div style="position:fixed;top:325px;left:230px">
+      <h2>More</h2>
+    </div>
+
+    <div class="well" style="position:fixed;left:100px;top:380px;background:# #F8F8F8 ">
+        <p>Aptitutor was developed with the purpose<br>of helping individuals develop and improve<br>their mathematical ability and problem solving<br>skills.Please feel free to reach out to us and<br>provide any valuable suggestions which might<br>help us in improving the site.</p>
+      </div>
+  

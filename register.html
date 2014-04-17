@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+  <input type="hidden" id="refreshed" value="no">
+  <script type="text/javascript">
+  onload=function(){
+    var e=document.getElementById("refreshed");
+    if(e.value=="no")e.value="yes";
+    else{e.value="no";location.reload();}
+  }
+  </script>
+  <script src = "reg.js">
+  </script>
+  <head>
+
+    <style>
+      table,th,td{
+        border:1px solid gray;
+        border-collapse:collapse;
+        text-align:center;
+      }
+      th,td{
+        padding:5px;
+        text-align:center;
+      }
+    </style>
+
+    <script>
+        //alert(document.cookie);
+    </script>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    
+
+    <title>Aptitutor</title>
+
+    
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    
+
+  </head>
+
+  <body>
+
+    <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a href = "/" class="navbar-brand" href="#" style="position:fixed;top:3px"><font color="white" size="6px">Aptitutor</font></a>
+         
+        </div>
+        
+        <div class="navbar-collapse collapse" style="position:fixed;top:-5px;left:250px">
+          <ul class="nav navbar-nav">
+            <li><a href="/ranking/page/1"><h4>Rankings<h4></a></li>
+            <li><a href="/past"><h4>Archive</h4></a></li>
+
+            <li><a href="/contest"><h4>Contests<h4></a></li>
+          </ul>
+        </div>
+
+        <div class="navbar-collapse collapse">
+          <form class="navbar-form navbar-right" role="form" method = "post" action = "/loginform">
+            <div class="form-group">
+              <input id = "nick" type="text" placeholder="Nickname" class="form-control" name = "nick">
+            </div>
+            <div class="form-group">
+
+              <input id = "pass" type="password" placeholder="Password" class="form-control" name = "pass">
+            </div>
+            <button type="submit" class="btn btn-lg btn-success">Sign in</button>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    
+
+    <div class="well" style="position:absolute;left:100px;top:100px;width:500px;height:490px">
+
+        <font color="black" size="4px" style="position:absolute;top:50px;left:130px" >Name</font><font color="red" size="4px" style="position:absolute;top:50px;left:177px">*</font><br>
+
+        <div id = "1" style = "display:none">
+        <font color="red" style="position:absolute;left:190px;top:82px;">Name must contain only alphabets</font>
+		</div>
+
+        <div class="form-group" style="position:absolute;top:50px;left:190px">
+              <input id = "name" type="text"  class="form-control" name = "name" onFocus = "display('1')" >
+        </div>
+
+        <font color="black" size="4px" style="position:absolute;top:110px;left:140px">Nick</font><font color="red" size="4px" style="position:absolute;top:110px;left:177px">*</font>
+
+        <div style="position:absolute;left:190px;top:140px;display:none" id = "2">
+        <font color="red" >Nick may contain alphabets, numerals or [!,@,#,_,^] only.</font>
+        </div>
+        <div style="position:absolute;left:190px;top:145px;display:none" id = "7">
+        <font color="red" >Nick Already Exists!</font>
+        </div>
+
+        <div class="form-group" style="position:absolute;top:110px;left:190px">
+              <input id = "nick1" type="text"  class="form-control" name = "nick1" onFocus = "display('2')" >
+        </div>
+
+        
+
+        <font color="black" size="4px" style="position:absolute;top:180px;left:145px">City</font><font color="red" size="4px" style="position:absolute;top:180px;left:177px">*</font>
+        <div class="form-group" style="position:absolute;top:180px;left:190px">
+              <input id = "city" type="text"  class="form-control" name = "city" onFocus = "display('3')" >
+        </div>
+
+        <div style="position:absolute;left:190px;top:210px;display:none" id = "3">
+        <font color="red" >City must contain only alphabets.</font>
+        </div>
+
+        <font color="black" size="4px" style="position:absolute;top:235px;left:124px">E-mail</font><font color="red" size="4px" style="position:absolute;top:235px;left:177px">*</font>
+        <div class="form-group" style="position:absolute;top:230px;left:190px">
+              <input id = "email" type="text"  class="form-control" name = "email" >
+        </div>
+
+        <div style="position:absolute;left:190px;top:265px;display:none" id = "4">
+        <font color="red" >Enter a valid e-mail.</font>
+        </div>
+
+        <font color="black" size="4px" style="position:absolute;top:290px;left:97px">Password</font><font color="red" size="4px" style="position:absolute;top:290px;left:177px">*</font>
+        <div class="form-group" style="position:absolute;top:290px;left:190px">
+              <input id = "pass1" type="password"  class="form-control" name = "pass1" onFocus = "display('5')" >
+        </div>
+
+        <div style="position:absolute;left:190px;top:320px;display:none" id = "5">
+        <font color="red" >Password may contain alphabets, numerals or [!,@,#,_,^] only. Password must contain atleast 6 characters.</font>
+        </div>
+
+        <font color="black" size="4px" style="position:absolute;top:380px;left:30px">Confirm Password</font><font color="red" size="4px" style="position:absolute;top:370px;left:177px">*</font>
+        <div class="form-group" style="position:absolute;top:380px;left:190px">
+              <input id = "pass2" type="password"  class="form-control" name = "pass2">
+        </div>
+
+        <div style="position:absolute;left:190px;top:410px;display:none" id = "6">
+        <font color="red">Password mismatch !</font>
+        </div>
+
+       <a class="btn btn-lg btn-danger" type = "Submit" role="button" style="position:absolute;top:430px;left:220px" onClick = "validate()" >Register &raquo;</a></p>
+        
+    </div>
+    <div style="position:absolute;left:500px;top:600px;display:none" id = "10">
+        <font color="red" >You have Registered Successfully! Please Login to continue.</font>
+    </div>
+    
+            
+
+    
+
+    
+      

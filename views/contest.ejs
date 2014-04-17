@@ -1,0 +1,96 @@
+<% include header %>
+    
+    
+    <div style="position:absolute;left:520px;top:75px">
+        <h2><u><%= contest_name %></h2>
+    </div>
+
+    <div class="col-sm-4" style="position:fixed;top:250px;left:1px;width:300px">
+        <div class="list-group" align="center">
+
+            <a href="#" id = "11" class="list-group-item active" onclick = "load('1','11')">Question 1-5</a>
+            <a href="#" id = "22" class="list-group-item"  onclick = "load('2','22')">Question 6-10</a>
+            <a href="#" id = "33" class="list-group-item"  onclick = "load('3','33')">Question 11-15</a>
+            <a href="#" id = "44" class="list-group-item"  onclick = "load('4','44')">Question 16-20</a>
+            <a href="#" id = "55" class="list-group-item"  onclick = "load('5','55')">Question 21-25</a>
+        </div>
+    </div>
+
+    
+    <form method = "post" action = "/submitContest">
+    <% for(var i = 0; i < 1; i++){ %>
+    <div style="position:absolute;left:520px;top:170px;width:500px" id = "<%= i + 1 %>">
+        <% for(var j= 0; j < 5; j++){ %>
+            <h4>Q<%=i*5 + j + 1 %>.<br><br><p style = "text-wrap:normal;"><%= question[i*5 + j]["ques"]%><p></h4><br>
+            A.&nbsp&nbsp<input type="radio" name= "<%=i*5 + j + 1 %>"  value="A">&nbsp&nbsp<%= question[i*5 + j]["op1"]%><br><br>
+            B.&nbsp&nbsp<input type="radio" name= "<%=i*5 + j + 1 %>"  value="B">&nbsp&nbsp<%= question[i*5 + j]["op2"]%><br><br>
+            C.&nbsp&nbsp<input type="radio" name= "<%=i*5 + j + 1 %>" value="C">&nbsp&nbsp<%= question[i*5 + j]["op3"]%><br><br>
+            D.&nbsp&nbsp<input type="radio" name= "<%=i*5 + j + 1 %>" value="D">&nbsp&nbsp<%= question[i*5 + j]["op4"]%><br><br>   
+            <input type = "button" id = "<%=i*5 + j + 1 + 30%>" value = "Clear Answer!" onClick = "clear1(this.id)">
+        <hr>
+        <% } %>
+        
+    </div>
+    <% } %>
+    <input type = "submit" value = "Submit" button type="button" class="btn btn-lg btn-success" style="position:fixed;top:500px;left:100px"></button>
+    </form>
+
+    
+   
+     
+
+    <div class="panel panel-info" style="position:fixed;left:1px;top:100px;width:300px">
+            <div class="panel-heading" align="center">
+              <h3 class="panel-title">Time Remaining</h3>
+            </div>
+            <div class="panel-body" align="center" id = "timer">
+              
+            </div>
+    </div>
+    </body>
+    <script src = "../../sample.js">
+    </script>
+    <script type = "text/javascript">
+    var c = parseInt(<%= time %>);
+      GetCount(c);
+       function GetCount(amount){
+  //console.log(amount);
+        if(amount < 0){
+      
+          document.getElementById("timer").innerHTML = "Contest Started";
+        }
+  
+  else{
+    var temp = amount;
+    days = 0;hours = 0;mins = 0;secs = 0;out = "";
+    currd = 0; currhr = 0; currmin = 0; currsec = 0; currt = "";
+    amount = Math.floor(amount/1000);
+    days=Math.floor(amount/86400);
+    amount %= 86400;
+          
+    hours = Math.floor(amount/3600);
+    amount %= 3600;
+          
+    mins = Math.floor(amount/60);
+    amount %= 60;
+          
+    secs=Math.floor(amount);
+          
+    if(days != 0){out += days +" day"+((days!=1)?"s":"")+": ";}
+    if(days != 0 || hours != 0){out += hours +" hr"+((hours!=1)?"s":"")+": ";}
+    if(days != 0 || hours != 0 || mins != 0){out += mins +" min"+((mins!=1)?"":"")+": ";}
+    out += secs +" sec";
+
+    
+    document.getElementById("timer").innerHTML =  out ;        
+    
+    //console.log((temp - 1000));
+    amount = (temp - 1000);   
+    //console.log(amount);
+    console.log(out);      
+    setTimeout("GetCount("+amount+")", 1000);
+  }
+}
+    </script>
+    
+</html>
