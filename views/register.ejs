@@ -1,0 +1,145 @@
+<% include headeroff %>
+
+    
+    
+    
+    </script>
+    <div class="well" style="position:absolute;left:100px;top:100px;width:500px;height:700px">
+
+        <font color="black" size="4px" style="position:absolute;top:50px;left:130px" >Name</font><font color="red" size="4px" style="position:absolute;top:50px;left:177px">*</font><br>
+
+        <div id = "1" style = "display:none">
+        <font color="red" style="position:absolute;left:190px;top:82px;">Name must contain only alphabets</font>
+    </div>
+
+        <div class="form-group" style="position:absolute;top:50px;left:190px">
+              <input id = "name" type="text"  class="form-control" name = "name" onFocus = "display('1')" >
+        </div>
+
+        <font color="black" size="4px" style="position:absolute;top:110px;left:140px">Nick</font><font color="red" size="4px" style="position:absolute;top:110px;left:177px">*</font>
+
+        <div style="position:absolute;left:190px;top:140px;display:none" id = "2">
+        <font color="red" >Nick may contain alphabets, numerals or [!,@,_,^] only.</font>
+        </div>
+        <div style="position:absolute;left:190px;top:145px;display:none" id = "7">
+        <font color="red" >Nick Already Exists!</font>
+        </div>
+
+        <div class="form-group" style="position:absolute;top:110px;left:190px">
+              <input id = "nick1" type="text"  class="form-control" name = "nick1" onFocus = "display('2')" >
+        </div>
+
+        
+
+        <font color="black" size="4px" style="position:absolute;top:180px;left:145px">City</font><font color="red" size="4px" style="position:absolute;top:180px;left:177px">*</font>
+        <div class="form-group" style="position:absolute;top:180px;left:190px">
+              <input id = "city" type="text"  class="form-control" name = "city" onFocus = "display('3')" >
+        </div>
+
+        <div style="position:absolute;left:190px;top:210px;display:none" id = "3">
+        <font color="red" >City must contain only alphabets.</font>
+        </div>
+
+        <font color="black" size="4px" style="position:absolute;top:235px;left:124px">E-mail</font><font color="red" size="4px" style="position:absolute;top:235px;left:177px">*</font>
+        <div class="form-group" style="position:absolute;top:230px;left:190px">
+              <input id = "email" type="text"  class="form-control" name = "email" >
+        </div>
+
+        <div style="position:absolute;left:190px;top:265px;display:none" id = "4">
+        <font color="red" >Enter a valid e-mail.</font>
+        </div>
+
+        <font color="black" size="4px" style="position:absolute;top:290px;left:97px">Password</font><font color="red" size="4px" style="position:absolute;top:290px;left:177px">*</font>
+        <div class="form-group" style="position:absolute;top:290px;left:190px">
+              <input id = "pass1" type="password"  class="form-control" name = "pass1" onFocus = "display('5')" >
+        </div>
+
+        <div style="position:absolute;left:190px;top:320px;display:none" id = "5">
+        <font color="red" >Password must contain atleast 6 characters.</font>
+        </div>
+
+        <font color="black" size="4px" style="position:absolute;top:380px;left:30px">Confirm Password</font><font color="red" size="4px" style="position:absolute;top:370px;left:177px">*</font>
+        <div class="form-group" style="position:absolute;top:380px;left:190px">
+              <input id = "pass2" type="password"  class="form-control" name = "pass2">
+        </div>
+
+        <div style="position:absolute;left:190px;top:410px;display:none" id = "6">
+        <font color="red">Password mismatch !</font>
+        </div>
+        <div >
+        <img src="/captcha.jpg"/ style = "position:absolute;top:450px;left:160px;">
+        <font color="black" size="4px" style="position:absolute;top:623px;left:25px">Enter Captcha Text</font><font color="red" size="4px" style="position:absolute;top:610px;left:177px">*</font>
+        </div>
+        <div style = "position:absolute;top:620px;left:190px;">
+          <input class="form-control" id = "digits" type="text"  class="form-control" name = "digits">
+        </div>
+       <a class="btn btn-lg btn-danger" type = "Submit" role="button" onClick = "validate()" style="position:absolute;top:670px;left:220px">Register &raquo;</a></p>
+       
+        
+    </div>
+    <div style="position:absolute;left:150px;top:600px;display:none" id = "10">
+        <font color="red" >You have Registered Successfully! Please Login to continue.</font>
+    </div>
+
+    <div class="panel panel-primary" style="position:fixed;left:820px;top:100px;width:300px">
+            <div class="panel-heading" align="center">
+              <h3 class="panel-title">Upcoming Rounds</h3>
+            </div>
+            <div class="panel-body" align="center" id = "timer">
+              
+            </div>
+    </div>
+    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header" style = "background-color:#FF3333">
+        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+        <h4 align = "center" class="modal-title" id="myModalLabel">Registration Failed! Try Again :(</h4>
+      </div>
+      <div class="modal-body">
+            <h3 align = "center">1. Please Enter Valid Credentials. <br> <br> 2. Try choosing a different username! <br><br> 3. If you are still unable to register. Contact 08809731813 <a href = "https://www.facebook.com/sinaka99?fref=ts">(Akash Sinha)</a></h3>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        
+      </div>
+    </div>
+  </div>
+</div>
+    <div style="position:fixed;top:320px;left:900px"><h3>Top Rated</h3>
+
+    <div style="position:fixed;left:840px;top:380px">
+      <table style="width:270px">
+        <tr>
+          <th><p align = "center">#</th>
+          <th><p align = "center">Nick</th>   
+          <th><p align = "center">Rating</th>
+        </tr>
+        <tr>
+    <% for(var i = 1; i <= ranking.length; i += 2){ %>
+          
+          <tr>
+          <td style="background:#F0F0F0;"><%=i%></td>
+          <td style="background:#F0F0F0;"><a href="/users/<%=ranking[i - 1]["nick"]%>"><font color="red"><%= ranking[i-1]["nick"]%></font></a></td>    
+          <td style="background:#F0F0F0;"><%=ranking[i - 1]["rating"]%></td>
+          </tr>
+          
+          <% if (i < ranking.length){ %>
+          <tr>
+          <td><%= i + 1%></td>
+          <td><a href="/users/<%=ranking[i]["nick"]%>" ><font color="red"><%=ranking[i]["nick"] %></font></a></td> 
+          <td><%=ranking[i]["rating"]%></td>
+          </tr>
+          
+          <% }} %>
+    </div>
+    </div>
+    
+
+  </body>
+
+  <script src = "/js/jquery.min.js"></script>
+  <script src = "/js/bootstrap.min.js"></script>
+  
+  <script src = "../../reg.js">
+  <% include footer %>

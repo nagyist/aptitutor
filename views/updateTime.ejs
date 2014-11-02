@@ -1,0 +1,41 @@
+<% include header %>
+
+<div style="position:absolute;left:500px;top:75px">
+   	<h2><u>Update Contest Time!</u></h2>
+</div>
+<div id = "updator" style = "display:block;position:absolute;left:400px;top:200px">
+	<div class="form-group">
+		<label for = "contestName">Enter Contest Id</label>
+		<input type = "text" class = "form-control" id = "contestId" size = "35px">
+		<p id = "info1" style = "color:Red">Should be an Integer!</p>
+	</div>
+	<div class="form-group">
+		<label for = "sTime">Enter New Starting Time</label>
+		<input type = "text" class = "form-control" id = "sTime" size = "35px">
+		<p id = "info2" style = "color:Red">Example Date Format : Sun Jun 29 2014 23:30:00 GMT+0530 (IST)</p>
+	</div>
+	<div class="form-group">
+		<label for = "eTime">Enter New Ending Time</label>
+		<input type = "text" class = "form-control" id = "eTime" size = "35px">
+		
+	</div>
+	<button type = "button" id = "updateTime" class="btn btn-danger">Update Time!</button>
+	<div style = "color:red">
+        <h3><p id = "valid"></p></h3>
+    </div>
+</div>
+</body>
+<script type="text/javascript" src="http://caja.appspot.com/html-css-sanitizer-minified.js"></script>
+<script src="/socket.io/socket.io.js"></script>
+<script src="js/verify1.js"></script>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-52998190-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+</html>

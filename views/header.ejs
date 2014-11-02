@@ -11,7 +11,6 @@
   </script>
     <style>
       table,th,td{
-        border:1px solid gray;
         border-collapse:collapse;
         text-align:center;
       }
@@ -53,16 +52,20 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href= "/" style="position:fixed;top:3px"><font color="white" size="6px">Aptitutor</font></a>
+          <a class="navbar-brand" href= "/" style="position:fixed;top:3px"><font color="white" size="6px">Aptitutor  </font></a>
          
         </div>
         
-        <div class="navbar-collapse collapse" style="position:fixed;top:-5px;left:250px">
+        <div class="navbar-collapse collapse" style="position:fixed;top:-5px;left:300px">
           <ul class="nav navbar-nav">
             <li><a href="/ranking/page/1"><h4>Rankings<h4></a></li>
-            <li><a href="/past"><h4>Archive</h4></a></li>
+            <li><a href="/Contests"><h4>Contests</h4></a></li>
 
-            <li><a href="#contact"><h4>Contact<h4></a></li>
+            <li><a href="/Practice"><h4>Practice<h4></a></li>
+            <% if(Nick == 'Admin') { %>
+            	<li><a href="/adminPanel"><h4>Admin Options<h4></a></li>
+            <% } %>
+            
           </ul>
         </div>
 

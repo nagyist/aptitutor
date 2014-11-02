@@ -1,0 +1,69 @@
+  <script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-52998190-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+
+  <script type = "text/javascript">
+  var c = parseInt(<%= time %>);
+  var no_of_contest = (<%= upcoming.length - 1%>);
+  
+
+  var time = new Date().getTime();
+  var finish = c + time;
+  if(c == -111000001010)
+    document.getElementById("timer").innerHTML = "No Upcoming Contest";
+  else{
+
+      GetCount(c);
+  }
+       function GetCount(amount){
+  //console.log(amount);
+        if(amount < 0){
+      
+          document.getElementById("timer").innerHTML = '<a href="/contest/id/<%=upcoming[0]["id"]%>">Contest Started</a>';
+        }
+  
+  else{
+    var amount = finish - new Date().getTime();
+    days = 0;hours = 0;mins = 0;secs = 0;out = "";
+    currd = 0; currhr = 0; currmin = 0; currsec = 0; currt = "";
+    amount = Math.floor(amount/1000);
+    days=Math.floor(amount/86400);
+    amount %= 86400;
+          
+    hours = Math.floor(amount/3600);
+    amount %= 3600;
+          
+    mins = Math.floor(amount/60);
+    amount %= 60;
+          
+    secs=Math.floor(amount);
+          
+    if(days != 0){out += days +" day"+((days!=1)?"s":"")+": ";}
+    if(days != 0 || hours != 0){out += hours +" hr"+((hours!=1)?"s":"")+": ";}
+    if(days != 0 || hours != 0 || mins != 0){out += mins +" min"+((mins!=1)?"":"")+": ";}
+    out += secs +" sec";
+
+    
+    
+    if(no_of_contest == 0)
+      out = '<a href="/contest/id/<%=upcoming[0]["id"]%>" > <h4><u><%= upcoming[0]["name"]%></u></a></h4><br> Starts In:<h4>' + out + '</h4>';
+
+    if(no_of_contest > 0)
+      out = '<a href="/contest/id/<%=upcoming[0]["id"]%>" > <h4><u><%= upcoming[0]["name"]%></u></a></h4>' + '<h4><a href = "/Contests">and ' + no_of_contest + ' more.. </a></h4>' + '<br> Starts In:<h4>' + out + '</h4>';
+    document.getElementById('timer').innerHTML = out;
+        
+    setTimeout("GetCount("+amount+")", 1000);
+  }
+}
+    function closee(){
+      document.getElementById('tab').style.display = 'none';
+    }
+</script>
+</html>

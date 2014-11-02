@@ -1,0 +1,219 @@
+<% include headeroff %>
+
+    
+    
+    <form method = "post" action = "/regform">
+    <div class="well" style="position:absolute;left:100px;top:100px;width:500px;height:700px">
+
+        <font color="black" size="4px" style="position:absolute;top:50px;left:130px" >Name</font><font color="red" size="4px" style="position:absolute;top:50px;left:177px">*</font><br>
+        <% if(name){%>
+        <div id = "1" style = "display:none">
+        <font color="red" style="position:absolute;left:190px;top:82px;">Name must contain only alphabets</font>
+    </div>
+        <% } %>
+        <% if(name == 0){%>
+        <div id = "1" style = "display:block">
+        <font color="red" style="position:absolute;left:190px;top:82px;">Name must contain only alphabets</font>
+    </div>
+        <% } %>
+
+        <div class="form-group" style="position:absolute;top:50px;left:190px">
+              <input id = "name" type="text"  class="form-control" name = "name" value = "<%=NAME%>" onFocus = "display('1')" >
+        </div>
+        
+        <font color="black" size="4px" style="position:absolute;top:110px;left:140px">Nick</font><font color="red" size="4px" style="position:absolute;top:110px;left:177px">*</font>
+        
+        <% if(nick){ %>
+        <div style="position:absolute;left:190px;top:140px;display:none" id = "2">
+        <font color="red" >Nick may contain alphabets, numerals or [!,@,_,^] only.</font>
+        </div>
+        <% } %>
+        <% if(nick == 0){ %>
+        <div style="position:absolute;left:190px;top:140px;display:block" id = "2">
+        <font color="red" >Nick may contain alphabets, numerals or [!,@,_,^] only.</font>
+        </div>
+        <% } %>
+        <% if(oldNick == 0){ %>
+        <div style="position:absolute;left:190px;top:145px;display:block" id = "7">
+        <font color="red" >Nick Already Exists!</font>
+        </div>
+        <% } %>
+        <% if(oldNick){ %>
+        <div style="position:absolute;left:190px;top:145px;display:none" id = "7">
+        <font color="red" >Nick Already Exists!</font>
+        </div>
+        <% } %>
+        <div class="form-group" style="position:absolute;top:110px;left:190px">
+              <input id = "nick1" type="text"  class="form-control" value = "<%=NICK%>""  name = "nick1" onFocus = "display('2')" >
+        </div>
+
+        
+
+        <font color="black" size="4px" style="position:absolute;top:180px;left:145px">City</font><font color="red" size="4px" style="position:absolute;top:180px;left:177px">*</font>
+        <div class="form-group" style="position:absolute;top:180px;left:190px">
+              <input id = "city" type="text" value = "<%=CITY%>""  class="form-control" name = "city" onFocus = "display('3')" >
+        </div>
+        <% if(city){ %>
+        <div style="position:absolute;left:190px;top:210px;display:none" id = "3">
+        <font color="red" >City must contain only alphabets.</font>
+        </div>
+        <% } %>
+        <%if (city == 0){ %>
+        <div style="position:absolute;left:190px;top:210px;display:block" id = "3">
+        <font color="red" >City must contain only alphabets.</font>
+        </div>
+        <% } %>
+        <font color="black" size="4px" style="position:absolute;top:235px;left:124px">E-mail</font><font color="red" size="4px" style="position:absolute;top:235px;left:177px">*</font>
+        <div class="form-group" style="position:absolute;top:230px;left:190px">
+              <input id = "email" type="text"  value = "<%=EMAIL%>" class="form-control" name = "email" >
+        </div>
+        <% if(email) { %>
+        <div style="position:absolute;left:190px;top:265px;display:none" id = "4">
+        <font color="red" >Enter a valid e-mail.</font>
+        </div>
+        <% } %>
+        <% if(email == 0) { %>
+        <div style="position:absolute;left:190px;top:265px;display:block" id = "4">
+        <font color="red" >Enter a valid e-mail.</font>
+        </div>
+        <% } %>
+        <font color="black" size="4px" style="position:absolute;top:290px;left:97px">Password</font><font color="red" size="4px" style="position:absolute;top:290px;left:177px">*</font>
+        <div class="form-group" style="position:absolute;top:290px;left:190px">
+              <input id = "pass1" type="password"  class="form-control" name = "pass1" onFocus = "display('5')" >
+        </div>
+        <% if(pass){ %>
+        <div style="position:absolute;left:190px;top:320px;display:none" id = "5">
+        <font color="red" >Password may contain alphabets, numerals or [!,@,_,^] only. Password must contain atleast 6 characters.</font>
+        </div>
+        <% } %>
+        <% if(pass == 0){ %>
+        <div style="position:absolute;left:190px;top:320px;display:block" id = "5">
+        <font color="red" >Password may contain alphabets, numerals or [!,@,_,^] only. Password must contain atleast 6 characters.</font>
+        </div>
+        <% } %>
+        <font color="black" size="4px" style="position:absolute;top:380px;left:30px">Confirm Password</font><font color="red" size="4px" style="position:absolute;top:370px;left:177px">*</font>
+        <div class="form-group" style="position:absolute;top:380px;left:190px">
+              <input id = "pass2" type="password"  class="form-control" name = "pass2">
+        </div>
+        <% if(miss){ %>
+        <div style="position:absolute;left:190px;top:410px;display:none" id = "6">
+        <font color="red">Password mismatch !</font>
+        </div>
+        <% } %>
+        <% if(miss == 0){ %>
+        <div style="position:absolute;left:190px;top:410px;display:block" id = "6">
+        <font color="red">Password mismatch !</font>
+        </div>
+        <% } %>
+        <div >
+        <img src="/captcha.jpg"/ style = "position:absolute;top:450px;left:160px;">
+        <font color="black" size="4px" style="position:absolute;top:623px;left:25px">Enter Captcha Text</font><font color="red" size="4px" style="position:absolute;top:610px;left:177px">*</font>
+        </div>
+        <div style = "position:absolute;top:620px;left:190px;">
+          <input class="form-control" id = "digits" type="text"  class="form-control" name = "digits">
+        </div>
+       <input type = "Submit" value = "Register &raquo;"a class="btn btn-lg btn-danger" role="button"style="position:absolute;top:670px;left:220px"></a></p>
+       </form>
+        
+    </div>
+    <div style="position:absolute;left:150px;top:600px;display:none" id = "10">
+        <font color="red" >You have Registered Successfully! Please Login to continue.</font>
+    </div>
+
+    <div class="panel panel-primary" style="position:fixed;left:820px;top:100px;width:300px">
+            <div class="panel-heading" align="center">
+              <h3 class="panel-title">Upcoming Rounds</h3>
+            </div>
+            <div class="panel-body" align="center" id = "timer">
+              
+            </div>
+    </div>
+
+    <div style="position:fixed;top:320px;left:900px"><h3>Top Rated</h3>
+
+    <div style="position:fixed;left:840px;top:380px">
+      <table style="width:270px">
+        <tr>
+          <th><p align = "center">#</th>
+          <th><p align = "center">Nick</th>   
+          <th><p align = "center">Rating</th>
+        </tr>
+        <tr>
+    <% for(var i = 1; i <= ranking.length; i += 2){ %>
+          
+          <tr>
+          <td style="background:#F0F0F0;"><%=i%></td>
+          <td style="background:#F0F0F0;"><a href="/users/<%=ranking[i - 1]["nick"]%>"><font color="red"><%= ranking[i-1]["nick"]%></font></a></td>    
+          <td style="background:#F0F0F0;"><%=ranking[i - 1]["rating"]%></td>
+          </tr>
+          
+          <% if (i < ranking.length){ %>
+          <tr>
+          <td><%= i + 1%></td>
+          <td><a href="/users/<%=ranking[i]["nick"]%>" ><font color="red"><%=ranking[i]["nick"] %></font></a></td> 
+          <td><%=ranking[i]["rating"]%></td>
+          </tr>
+          
+          <% }} %>
+  </body>
+  <script type = "text/javascript">
+  var c = parseInt(<%= time %>);
+  if(c == -111000001010)
+    document.getElementById("timer").innerHTML = "No Upcoming Contest";
+  else
+      GetCount(c);
+       function GetCount(amount){
+  //console.log(amount);
+        if(amount < 0){
+      
+          document.getElementById("timer").innerHTML = '<a href="/contest/id/<%=upcoming[0]["id"]%>">Contest Started</a>';;
+        }
+  
+  else{
+    var temp = amount;
+    days = 0;hours = 0;mins = 0;secs = 0;out = "";
+    currd = 0; currhr = 0; currmin = 0; currsec = 0; currt = "";
+    amount = Math.floor(amount/1000);
+    days=Math.floor(amount/86400);
+    amount %= 86400;
+          
+    hours = Math.floor(amount/3600);
+    amount %= 3600;
+          
+    mins = Math.floor(amount/60);
+    amount %= 60;
+          
+    secs=Math.floor(amount);
+          
+    if(days != 0){out += days +" day"+((days!=1)?"s":"")+": ";}
+    if(days != 0 || hours != 0){out += hours +" hr"+((hours!=1)?"s":"")+": ";}
+    if(days != 0 || hours != 0 || mins != 0){out += mins +" min"+((mins!=1)?"":"")+": ";}
+    out += secs +" sec";
+
+    
+    document.getElementById("timer").innerHTML = '<a href="#"> <h4><u><%= upcoming[0]["name"]%></u></a></h4><br> Starts In:<h4>' + out + '</h4>';        
+    
+    //console.log((temp - 1000));
+    amount = (temp - 1000);   
+    //console.log(amount);
+    console.log(out);      
+    setTimeout("GetCount("+amount+")", 1000);
+  }
+}
+    function closee(){
+      document.getElementById('tab').style.display = 'none';
+    }
+    </script>
+    <script src = "../../reg.js">
+    </script>
+    <script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-52998190-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+</html>

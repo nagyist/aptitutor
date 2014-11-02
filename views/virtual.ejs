@@ -1,0 +1,114 @@
+<% include header %>
+    <div style="position:absolute;left:400px;top:90px">
+    	<h1><u>Select A Contest : </h1>
+    </div>
+   
+    
+
+    
+        <div class="col-sm-4" align="center" style="position:absolute;left:300px;top:190px">
+          <ul class="list-group">
+            <% for(var i = 0; i < contest.length; i++){ %>
+            <li class="list-group-item"><a href="/Virtual/Registration/<%=contest[i]["id"]%>" style="text-decoration:none"><u><%=contest[i]["name"]%></a></u></li>
+            <% } %>           
+          </ul>
+        </div>
+   	
+    <div class="panel panel-primary" style="position:absolute;left:820px;top:100px;width:300px">
+            <div class="panel-heading" align="center">
+              <h3 class="panel-title">Upcoming Rounds</h3>
+            </div>
+            <div class="panel-body" align="center" id = "timer">
+              
+            </div>
+    </div>
+   <div style="position:fixed;top:320px;left:900px"><h3>Top Rated</h3>
+
+    <div style="position:fixed;left:840px;top:380px">
+      <table style="width:270px">
+        <tr>
+          <th><p align = "center">#</th>
+          <th><p align = "center">Nick</th>   
+          <th><p align = "center">Rating</th>
+        </tr>
+        <tr>
+    <% for(var i = 1; i <= ranking.length; i += 2){ %>
+          
+          <tr>
+          <td style="background:#F0F0F0;"><%=i%></td>
+          <td style="background:#F0F0F0;"><a href="/users/<%=ranking[i - 1]["nick"]%>"><font color="red"><%= ranking[i-1]["nick"]%></font></a></td>    
+          <td style="background:#F0F0F0;"><%=ranking[i - 1]["rating"]%></td>
+          </tr>
+          
+          <% if (i < ranking.length){ %>
+          <tr>
+          <td><%= i + 1%></td>
+          <td><a href="/users/<%=ranking[i]["nick"]%>" ><font color="red"><%=ranking[i]["nick"] %></font></a></td> 
+          <td><%=ranking[i]["rating"]%></td>
+          </tr>
+          
+          <% }} %>
+    </div>
+    </div>
+
+  </body>
+  <script type = "text/javascript">
+  var c = parseInt(<%= time %>);
+  var time = new Date().getTime();
+  var finish = c + time;
+  if(c == -111000001010)
+    document.getElementById("timer").innerHTML = "No Upcoming Contest";
+  else{
+
+      GetCount(c);
+  }
+       function GetCount(amount){
+  //console.log(amount);
+        if(amount < 0){
+      
+          document.getElementById("timer").innerHTML = '<a href="/contest/id/<%=upcoming[0]["id"]%>">Contest Started</a>';
+        }
+  
+  else{
+    var amount = finish - new Date().getTime();
+    days = 0;hours = 0;mins = 0;secs = 0;out = "";
+    currd = 0; currhr = 0; currmin = 0; currsec = 0; currt = "";
+    amount = Math.floor(amount/1000);
+    days=Math.floor(amount/86400);
+    amount %= 86400;
+          
+    hours = Math.floor(amount/3600);
+    amount %= 3600;
+          
+    mins = Math.floor(amount/60);
+    amount %= 60;
+          
+    secs=Math.floor(amount);
+          
+    if(days != 0){out += days +" day"+((days!=1)?"s":"")+": ";}
+    if(days != 0 || hours != 0){out += hours +" hr"+((hours!=1)?"s":"")+": ";}
+    if(days != 0 || hours != 0 || mins != 0){out += mins +" min"+((mins!=1)?"":"")+": ";}
+    out += secs +" sec";
+
+    
+    document.getElementById("timer").innerHTML = '<a href="/contest/id/<%=upcoming[0]["id"]%>" > <h4><u><%= upcoming[0]["name"]%></u></a></h4><br> Starts In:<h4>' + out + '</h4>';        
+    
+        
+    setTimeout("GetCount("+amount+")", 1000);
+  }
+}
+    function closee(){
+      document.getElementById('tab').style.display = 'none';
+    }
+    </script>
+    <script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-52998190-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+</html>

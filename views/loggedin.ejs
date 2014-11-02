@@ -1,105 +1,103 @@
-<%include header %>
-    
-    
+<% include header %>
 
-    
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/en_GB/sdk.js#xfbml=1&appId=577914135656293&version=v2.0";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
 
-    
-
-    <div class="jumbotron">
+<div class="jumbotron">
       <div class="container">
         <h1>Aptitutor!</h1>
-        <p>Aptitutor is an aptitude assesment online platform which allows users to participate and compete in variuos online aptitude tests and evaluate their performance relative to other participants.<a href="#">Take a sample test...</a></p>
-        <p><a class="btn btn-lg btn-danger" role="button">Get Started &raquo;</a></p>
+        <p>Aptitutor is an aptitude assesment online platform which allows users to participate and compete in various online aptitude tests and evaluate their performance relative to other participants.<a href="/Contests">Take a sample test...</a></p>
+        
       </div>
     </div>
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header" style = "background-color:#FF3333">
+        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+        <h4 align = "center" class="modal-title" id="myModalLabel">Notification</h4>
+      </div>
+      <div class="modal-body">
+            <h3 align = "center"><b>You can download the <a href = '/editorial7'>EDITORIAL</a> for Aptitutor Round 7.</b></h3>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        
+      </div>
+    </div>
+  </div>
+  </div>
+    <% if (login) { %>
+    <div class="alert alert-danger" style="position:absolute;top:60px;left:800px;width:300px;display:block" id = "tab">
+      <button type="button" class="close" data-dismiss="alert" onClick = "closee()">×</button>
+      <center>Incorrect Username/Password</center>
+    </div>
+    <% } %>
+    <div style="position:fixed;top:345px;left:592px"><h3>Top Rated</h3>
 
-    <div style="position:fixed;top:330px;left:600px"><b><h3>Top Rated</h3></b></div>
-
-    <div style="position:fixed;left:530px;top:380px">
+    <div style="position:fixed;left:530px;top:400px">
       <table style="width:270px">
         <tr>
-          <th>#</th>
-          <th>Nick</th>   
-          <th>Rating</th>
+          <th><p align = "center">#</th>
+          <th><p align = "center">Nick</th>   
+          <th><p align = "center">Rating</th>
         </tr>
         <tr>
         <% for(var i = 1; i <= ranking.length; i += 2){ %>
           
           <tr>
           <td style="background:#F0F0F0;"><%=i%></td>
-          <td style="background:#F0F0F0;"><a href="/users/<%=ranking[i]["nick"]%>"><font color="red"><%= ranking[i-1]["nick"]%></font></a></td>    
-          <td style="background:#F0F0F0;"><%=ranking[i]["rating"]%></td>
+          <td style="background:#F0F0F0;"><a href="/users/<%=ranking[i - 1]["nick"]%>"><font color="red"><%= ranking[i-1]["nick"]%></font></a></td>    
+          <td style="background:#F0F0F0;"><%=ranking[i - 1]["rating"]%></td>
           </tr>
           
-          
+          <% if (i < ranking.length){ %>
           <tr>
           <td><%= i + 1%></td>
           <td><a href="/users/<%=ranking[i]["nick"]%>" ><font color="red"><%=ranking[i]["nick"] %></font></a></td> 
           <td><%=ranking[i]["rating"]%></td>
           </tr>
           
-          <% } %>
-        
+          <% }} %>
+    </div>
+    </div>
+      
 
-    <div class="panel panel-primary" style="position:fixed;left:920px;top:382px;width:300px">
+    
+
+    <div style="position:fixed;top:340px;left:150px">
+      <h2>Announcements!</h2>
+    </div>
+
+    <div class="well" style="position:fixed;left:30px;top:410px;background:# #F8F8F8 ">
+        <p><a href = '/editorial7'>Download Editorial for Aptitutor Round 7.</p></a>
+        <p><b>To play an arithmetic game goto <a href = "http://numbergame.herokuapp.com">Numbers Game</a></b><br><br>For More Practice goto <a href = "http://aptitutor.herokuapp.com">Apti Game</a></p><br>
+        <p>Like us on Facebook</p>
+        <div class="fb-like" data-href="https://www.facebook.com/aptitutor" data-layout="standard" data-action="like" data-show-faces="false" data-share="true"></div>
+
+      </div>
+<div class="panel panel-primary" style="position:fixed;left:920px;top:382px;width:300px">
             <div class="panel-heading" align="center">
               <h3 class="panel-title">Upcoming Rounds</h3>
             </div>
-            <div class="panel-body" align="center" id = "timer">
-              
+            <div class="panel-body" align="center">
+              <div id = "timer">
             </div>
             
     </div>
-
-    <div style="position:fixed;top:325px;left:230px">
-      <h2>More</h2>
-    </div>
-
-    <div class="well" style="position:fixed;left:100px;top:380px;background:# #F8F8F8 ">
-        <p>Aptitutor was developed with the purpose<br>of helping individuals develop and improve<br>their mathematical ability and problem solving<br>skills.Please feel free to reach out to us and<br>provide any valuable suggestions which might<br>help us in improving the site.</p>
-      </div>
-  </body>
-  <script type = "text/javascript">
-  var c = parseInt(<%= time %>);
-      GetCount(c);
-       function GetCount(amount){
-  //console.log(amount);
-        if(amount < 0){
-      
-          document.getElementById("timer").innerHTML = "Contest Started";
-        }
-  
-  else{
-    var temp = amount;
-    days = 0;hours = 0;mins = 0;secs = 0;out = "";
-    currd = 0; currhr = 0; currmin = 0; currsec = 0; currt = "";
-    amount = Math.floor(amount/1000);
-    days=Math.floor(amount/86400);
-    amount %= 86400;
-          
-    hours = Math.floor(amount/3600);
-    amount %= 3600;
-          
-    mins = Math.floor(amount/60);
-    amount %= 60;
-          
-    secs=Math.floor(amount);
-          
-    if(days != 0){out += days +" day"+((days!=1)?"s":"")+": ";}
-    if(days != 0 || hours != 0){out += hours +" hr"+((hours!=1)?"s":"")+": ";}
-    if(days != 0 || hours != 0 || mins != 0){out += mins +" min"+((mins!=1)?"":"")+": ";}
-    out += secs +" sec";
-
     
-    document.getElementById("timer").innerHTML = '<a href="/contest/id/<%= upcoming[0]["id"]%>"> <h4><u><%= upcoming[0]["name"]%></u></a></h4><br> Starts In:<h4>' + out + '</h4>';        
-    
-    //console.log((temp - 1000));
-    amount = (temp - 1000);   
-    //console.log(amount);
-    console.log(out);      
-    setTimeout("GetCount("+amount+")", 1000);
-  }
-}
-    </script>
-</html>
+
+</body>
+
+
+<script src = "/js/jquery.min.js"></script>
+<script src = "/js/bootstrap.min.js"></script>
+
+
+<% include footer %>

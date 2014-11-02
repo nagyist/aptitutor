@@ -1,71 +1,102 @@
 <% include headeroff %>
 
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/en_GB/sdk.js#xfbml=1&appId=577914135656293&version=v2.0";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
 <div class="jumbotron">
       <div class="container">
         <h1>Aptitutor!</h1>
-        <p>Aptitutor is an aptitude assesment online platform which allows users to participate and compete in variuos online aptitude tests and evaluate their performance relative to other participants.<a href="#">Take a sample test...</a></p>
-        <p><a class="btn btn-lg btn-danger" role="button">Get Started &raquo;</a></p>
+        <p>Aptitutor is an aptitude assesment online platform which allows users to participate and compete in various online aptitude tests and evaluate their performance relative to other participants.<a href="/Contests">Take a sample test...</a></p>
+        <p><a href = "/register" class="btn btn-lg btn-danger" role="button">Register Here&raquo;</a>
+        
+        </p>
       </div>
     </div>
+    <% if (login) { %>
+    <div class="alert alert-danger" style="position:absolute;top:60px;left:800px;width:300px;display:block" id = "tab">
+      <button type="button" class="close" data-dismiss="alert" onClick = "closee()">×</button>
+      <center>Incorrect Username/Password</center>
+    </div>
+    <% } %>
+    <div style="position:fixed;top:345px;left:592px"><h3>Top Rated</h3>
 
-    <div style="position:fixed;top:330px;left:600px"><b><h3>Top Rated</h3></b></div>
-
-    <div style="position:fixed;left:530px;top:380px">
+    <div style="position:fixed;left:530px;top:400px">
       <table style="width:270px">
         <tr>
-          <th>#</th>
-          <th>Nick</th>   
-          <th>Rating</th>
+          <th><p align = "center">#</th>
+          <th><p align = "center">Nick</th>   
+          <th><p align = "center">Rating</th>
         </tr>
         <tr>
         <% for(var i = 1; i <= ranking.length; i += 2){ %>
           
           <tr>
           <td style="background:#F0F0F0;"><%=i%></td>
-          <td style="background:#F0F0F0;"><a href="/users/<%=ranking[i]["nick"]%>"><font color="red"><%= ranking[i-1]["nick"]%></font></a></td>    
-          <td style="background:#F0F0F0;"><%=ranking[i]["rating"]%></td>
+          <td style="background:#F0F0F0;"><a href="/users/<%=ranking[i - 1]["nick"]%>"><font color="red"><%= ranking[i-1]["nick"]%></font></a></td>    
+          <td style="background:#F0F0F0;"><%=ranking[i - 1]["rating"]%></td>
           </tr>
           
-          
+          <% if (i < ranking.length){ %>
           <tr>
           <td><%= i + 1%></td>
           <td><a href="/users/<%=ranking[i]["nick"]%>" ><font color="red"><%=ranking[i]["nick"] %></font></a></td> 
           <td><%=ranking[i]["rating"]%></td>
           </tr>
           
-          <% } %>
+          <% }} %>
         
 
     <div class="panel panel-primary" style="position:fixed;left:920px;top:382px;width:300px">
             <div class="panel-heading" align="center">
               <h3 class="panel-title">Upcoming Rounds</h3>
             </div>
-            <div class="panel-body" align="center" id = "timer">
-              
+            <div class="panel-body" align="center">
+              <div id = "timer">
             </div>
             
     </div>
-
-    <div style="position:fixed;top:325px;left:230px">
-      <h2>More</h2>
+    
+    <div style="position:fixed;top:340px;left:150px">
+      <h2>Announcements!</h2>
     </div>
 
-    <div class="well" style="position:fixed;left:100px;top:380px;background:# #F8F8F8 ">
-        <p>Aptitutor was developed with the purpose<br>of helping individuals develop and improve<br>their mathematical ability and problem solving<br>skills.Please feel free to reach out to us and<br>provide any valuable suggestions which might<br>help us in improving the site.</p>
+    <div class="well" style="position:fixed;left:30px;top:410px;background:# #F8F8F8 ">
+       
+        <p><b>Login to Download Editorial.</b>
+        <p>
+        <br><br> In case of any queries: Akash Sinha (08809731813)</p><br>
+        <p>Like us on Facebook</p>
+        <div class="fb-like" data-href="https://www.facebook.com/aptitutor" data-layout="standard" data-action="like" data-show-faces="false" data-share="true"></div>
       </div>
   </body>
+  <script src="/socket.io/socket.io.js"></script>
   <script type = "text/javascript">
   var c = parseInt(<%= time %>);
+  var no_of_contest = (<%= upcoming.length - 1%>);
+  
+
+  var time = new Date().getTime();
+  var finish = c + time;
+  if(c == -111000001010)
+    document.getElementById("timer").innerHTML = "No Upcoming Contest";
+  else{
+
       GetCount(c);
+  }
        function GetCount(amount){
   //console.log(amount);
         if(amount < 0){
       
-          document.getElementById("timer").innerHTML = "Contest Started";
+          document.getElementById("timer").innerHTML = '<a href="/contest/id/<%=upcoming[0]["id"]%>">Contest Started</a>';
         }
   
   else{
-    var temp = amount;
+    var amount = finish - new Date().getTime();
     days = 0;hours = 0;mins = 0;secs = 0;out = "";
     currd = 0; currhr = 0; currmin = 0; currsec = 0; currt = "";
     amount = Math.floor(amount/1000);
@@ -86,14 +117,29 @@
     out += secs +" sec";
 
     
-    document.getElementById("timer").innerHTML = '<a href="#"> <h4><u><%= upcoming[0]["name"]%></u></a></h4><br> Starts In:<h4>' + out + '</h4>';        
     
-    //console.log((temp - 1000));
-    amount = (temp - 1000);   
-    //console.log(amount);
-    console.log(out);      
+    if(no_of_contest == 0)
+      out = '<a href="/contest/id/<%=upcoming[0]["id"]%>" > <h4><u><%= upcoming[0]["name"]%></u></a></h4><br> Starts In:<h4>' + out + '</h4>';
+
+    if(no_of_contest > 0)
+      out = '<a href="/contest/id/<%=upcoming[0]["id"]%>" > <h4><u><%= upcoming[0]["name"]%></u></a></h4>' + '<h4><a href = "/Contests">and ' + no_of_contest + ' more.. </a></h4>' + '<br> Starts In:<h4>' + out + '</h4>';
+    document.getElementById('timer').innerHTML = out;
+        
     setTimeout("GetCount("+amount+")", 1000);
   }
 }
+    function closee(){
+      document.getElementById('tab').style.display = 'none';
+    }
     </script>
+    <script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-52998190-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
 </html>

@@ -1,0 +1,71 @@
+<% include header %>
+
+<div style="position:absolute;left:500px;top:75px">
+   	<h2><u>Update Question!</u></h2>
+</div>
+
+<div id = "contestCred" style = "display:block;position:absolute;left:400px;top:200px">
+
+	<div class="form-group">
+
+		<label for = "cId">Enter Contest Id</label>
+		<input type = "text" class = "form-control" id = "cId" size = "35px">
+		
+	</div>
+	<div class="form-group">
+		<label for = "qId">Enter Question Id (0 indexing)</label>
+		<input type = "text" class = "form-control" id = "qId" size = "35px">		
+	</div>
+	
+	<button type = "button" id = "getQuestion" class="btn btn-danger">Get Question!</button>
+</div>
+	<div id = "addConsole" style = "display:none;position:absolute;left:400px;top:200px">
+         
+        <div class="form-group">
+            <label for="Question">Enter Question</label>
+                <textarea class="form-control" id="Question" cols = "80" placeholder="Enter Question"></textarea>
+        </div>
+        <div class="form-group">
+            <label for="optA">Enter Option A</label>
+            <input type = "text" class="form-control" id="optA" placeholder="A:"></textarea>
+        </div>
+        <div class="form-group">
+        	<label for="optB" >Enter Option B</label>
+            	<input type = "text" class="form-control" id="optB"placeholder="B:"></textarea>
+        </div>
+        <div class="form-group">
+            <label for="optC" >Enter Option C</label>
+            	<input type = "text" class="form-control" id="optC" placeholder="C:"></textarea>
+        </div>
+        <div class="form-group">
+            <label for="optD">Enter Option D</label>
+        	    <input type = "text" class="form-control" id="optD"  placeholder="D:"></textarea>
+        </div>
+        <div class="form-group">
+            <label for="Cans" >Select Correct Answer:</label>
+        	       <select name = "ans" id = "Cans">
+                    <option value="A" selected = "selected">A</option>
+                    <option value="B">B</option>
+                    <option value="C">C</option>
+                    <option value="D">D</option>
+                    </select>
+                </div>
+                <br>
+                <div class="form-group">
+                    <div class="col-sm-offset-2 col-sm-10">
+                        <button id = "submit1" class="btn btn-default">Submit Question!</button>
+                    </div>
+                </div>
+                <br>
+                <div style = "color:red">
+                    <h3><p id = "valid"></p></h3>
+                </div>
+            
+        </div>
+
+
+</body>
+<script type="text/javascript" src="js/caja.js"></script>
+<script src="/socket.io/socket.io.js"></script>
+<script src="js/verify4.js"></script>
+</html>

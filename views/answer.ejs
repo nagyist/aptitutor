@@ -1,0 +1,116 @@
+<% include header %>
+    
+    
+    <div style="position:absolute;left:520px;top:75px">
+        <h2><u><%= contest_name %></h2>
+    </div>
+    <div class="panel panel-primary" style="position:fixed;left:7px;top:250px;width:280px">
+
+                <div class="panel-heading">
+                    <h3 class="panel-title" align="center">Scorecard</h3>
+                </div>
+                <div class="panel-body">
+                    Attempted: <%= attempted %><br>
+                    Score: <%= score %>
+                </div>
+        </div>
+    
+
+    <div style="position:absolute;left:520px;top:170px;width:500px" id = "<%= i + 1 %>">
+    <% for(var i = 0; i < question.length; i++){ %>
+    
+        
+            <h4>Q<%=i + 1 %>.<br><br><p style = "text-wrap:normal;"><%- question[i]["ques"]%><p></h4><br>
+            A.&nbsp&nbsp<input type="radio" name= "<%=i + 1 %>"  value="A">&nbsp&nbsp<%- question[i]["op1"]%><br><br>
+            B.&nbsp&nbsp<input type="radio" name= "<%=i + 1 %>"  value="B">&nbsp&nbsp<%- question[i]["op2"]%><br><br>
+            C.&nbsp&nbsp<input type="radio" name= "<%=i + 1 %>" value="C">&nbsp&nbsp<%- question[i]["op3"]%><br><br>
+            D.&nbsp&nbsp<input type="radio" name= "<%=i + 1 %>" value="D">&nbsp&nbsp<%- question[i]["op4"]%><br><br>   
+            
+            <b>Correct Answer : <%=answer[i]%></b><br>
+            <% if(your[i] != 'o') { %>
+                <b> Your Answer : <%= your[i] %></b>
+            <%}%>
+        <hr>
+        
+        
+    
+    <% } %>
+    </div>
+
+    
+   
+     
+
+    <div class="panel panel-info" style="position:fixed;left:1px;top:100px;width:300px">
+            <div class="panel-heading" align="center">
+              <h3 class="panel-title">Time Remaining</h3>
+            </div>
+            <div class="panel-body" align="center" id = "timer">
+              
+            </div>
+    </div>
+    </body>
+    <script src = "../../sample.js">
+    </script>
+    <script type = "text/javascript">
+    var c = parseInt(<%= time %>);
+    var finish = c + new Date().getTime();
+
+    if(c < 0)
+        flag = 0;
+    else{
+        flag = 1;        
+    }
+    GetCount(c);
+    function GetCount(amount){
+        if(amount < 0){          
+            document.getElementById("timer").innerHTML = "Contest Finished";
+            if(flag){
+                flag = 0;
+                document.forms["contest"].submit();
+            }
+        }
+  
+  else{
+    var amount = finish - new Date().getTime();
+    days = 0;hours = 0;mins = 0;secs = 0;out = "";
+    currd = 0; currhr = 0; currmin = 0; currsec = 0; currt = "";
+    amount = Math.floor(amount/1000);
+    days=Math.floor(amount/86400);
+    amount %= 86400;
+          
+    hours = Math.floor(amount/3600);
+    amount %= 3600;
+          
+    mins = Math.floor(amount/60);
+    amount %= 60;
+          
+    secs=Math.floor(amount);
+          
+    if(days != 0){out += days +" day"+((days!=1)?"s":"")+": ";}
+    if(days != 0 || hours != 0){out += hours +" hr"+((hours!=1)?"s":"")+": ";}
+    if(days != 0 || hours != 0 || mins != 0){out += mins +" min"+((mins!=1)?"":"")+": ";}
+    out += secs +" sec";
+
+    
+    document.getElementById("timer").innerHTML =  out ;        
+    
+    
+    setTimeout("GetCount("+amount+")", 1000);
+  }
+}
+function closee(){
+      document.getElementById('tab').style.display = 'none';
+    }
+    </script>
+    <script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-52998190-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+</html>

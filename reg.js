@@ -35,7 +35,7 @@ function name_city(x){
 function nick_pass(x){
 	var l = x.length,flag = 1;
 	for(var i = 0; i < l; i++){
-		if(x[i] >= 'a' && x[i] <= 'z' || x[i] >= 'A' && x[i] <= 'Z' || x[i] >= '0' && x[i] <= '9' || x[i] == '!' || x[i] == '@' || x[i] == '#' || x[i] == '^' || x[i] == '_')
+		if(x[i] >= 'a' && x[i] <= 'z' || x[i] >= 'A' && x[i] <= 'Z' || x[i] >= '0' && x[i] <= '9' || x[i] == '!' || x[i] == '@'  || x[i] == '^' || x[i] == '_')
 			continue;
 		else
 			flag = 0;
@@ -45,6 +45,7 @@ function nick_pass(x){
 function validate(){
 	blur();
 	//console.log(document.getElementById("name").value);
+	console.log("blahhhh!!");
 	var name = validator.trim(document.getElementById("name").value);
 	var flag = name_city(name);
 	
@@ -117,14 +118,19 @@ function validate(){
 		document.getElementById('6').style.display = 'block';
 		console.log("enter same password");
 	}
-	
+	var digits = document.getElementById("digits").value;
+	if(isNaN(digits))
+		ok = 0;
 	if(!ok)
 		return;
 	
 
 	xmlhttp.open("POST","http://192.168.126.29:8002/regform", true);
-	xmlhttp.send("name=" + name + "&nick=" + nic + "&city=" + city + "&email=" + document.getElementById("email").value + "&pass=" + passw);
+	xmlhttp.send("name=" + name + "&nick=" + nic + "&city=" + city + "&email=" + document.getElementById("email").value + "&pass=" + passw + "&digits=" + digits);
 
 	
 	document.getElementById('10').style.display = 'block';
+
+	window.location.href = 'http://192.168.126.29:8002';
+	
 }

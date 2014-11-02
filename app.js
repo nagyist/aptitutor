@@ -1,52 +1,16 @@
-var express = require('express'),
- app = express(),
- fs = require('fs');
+var app = require('express')()
+  , server = require('http').createServer(app)
+  , io = require('socket.io').listen(server);
 
-app.use(express.cookieParser());
-app.use(express.session({secret: '1234567890QWERTY'}));
+server.listen(8000);
 
-app.get('/', function(req, res) {  
-    fs.readFile('./index.html', function (err, data) {
-        if(err){
-            res.writeHead(500);
-            return res.end('Error loading File');
-        }
-        else {
-            if(req.session.stat) {
-                res.writeHead(200);
-                console.log(req.sesstion.stat);
-            }
-            else {
-
-                res.writeHead(200);
-                res.write(data);
-                res.end();
-            }
-        }
-    });  
-});
-app.get('/loginform', function (req, res){
-    if(req.method == 'POST'){
-        var chunk = '';
-        req.on('data', function (data) {
-            chunk += data;
-        });
-        req.on('end', function (){
-            var string = querystring.parse(chunk);
-            var nick = string['nick'];
-            var pass = string['pass'];
-            console.log(nick + "    " + pass);
-            if(nick == pass)
-                req.session.stat = 17;
-            else
-                req.session.stat = 0;
-            res.writeHead(301,{'Location': 'http://192.168.126.29:8080/'}); 
-
-
-        });
-    }
+app.get('/', function (req, res) {
+  res.sendfile(__dirname + '/index3.html');
 });
 
-
-
-app.listen(8080, "192.168.126.29");
+io.sockets.on('connection', function (socket) {
+  socket.emit('news', { hello: 'world' });
+  socket.on('my other event', function (data) {
+    console.log(data);
+  });
+});

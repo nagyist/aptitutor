@@ -1,0 +1,35 @@
+<%include header %>
+
+<div style="position:absolute;left:500px;top:75px">
+   	<h2><u>Delete A USER!</u></h2>
+</div>
+<div id = "contestCred" style = "display:block;position:absolute;left:400px;top:200px">
+<div class="form-group">
+
+		<label for = "id">Enter User nickname!</label>
+		<input type = "text" class = "form-control" id = "id" size = "10px">
+		<br>
+		<p id = "info1" style = "color:Red">Enter a Valid Nickname!</p>
+		<div class="form-group">
+            <div class="col-sm-offset-2 col-sm-10">
+            	<br>
+                <button id = "submit1" class="btn btn-default">Delete User!</button>
+            </div>
+        </div>
+</div>
+</div>
+</body>
+<script src="/socket.io/socket.io.js"></script>
+<script>
+	var nsp = io.connect('/admin');
+	var x = document.getElementById('submit1');
+	x.addEventListener('click', function(){
+		var value = document.getElementById('id').value;
+		console.log(value);
+		nsp.emit('deleteUser', value);
+	});
+	nsp.on('error', function (data){
+		document.getElementById('info1').innerHTML = data;
+	});
+</script>
+</html>

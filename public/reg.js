@@ -35,7 +35,7 @@ function name_city(x){
 function nick_pass(x){
 	var l = x.length,flag = 1;
 	for(var i = 0; i < l; i++){
-		if(x[i] >= 'a' && x[i] <= 'z' || x[i] >= 'A' && x[i] <= 'Z' || x[i] >= '0' && x[i] <= '9' || x[i] == '!' || x[i] == '@' || x[i] == '#' || x[i] == '^' || x[i] == '_')
+		if(x[i] >= 'a' && x[i] <= 'z' || x[i] >= 'A' && x[i] <= 'Z' || x[i] >= '0' && x[i] <= '9' || x[i] == '!' || x[i] == '@' || x[i] == '^' || x[i] == '_')
 			continue;
 		else
 			flag = 0;
@@ -67,7 +67,7 @@ function validate(){
 	}
 	if(flag){
 		xmlhttp = new XMLHttpRequest();
-		xmlhttp.open("GET","http://192.168.126.29:8002/checkNick/"+nic+"/",false);
+		xmlhttp.open("GET","/checkNick/"+nic+"/",false);
 		xmlhttp.onreadystatechange=function(){
         	if (xmlhttp.readyState==4 && xmlhttp.status==200){
         		
@@ -95,21 +95,18 @@ function validate(){
 		document.getElementById('3').style.display = 'block';
 	}
 
-	console.log("email = "+validator.isEmail(document.getElementById("email").value));
+	//console.log("email = "+validator.isEmail(document.getElementById("email").value));
 	if(!validator.isEmail(document.getElementById("email").value)){
 		ok = 0;
 		document.getElementById('4').style.display = 'block';
 	}
 	var passw = document.getElementById("pass1").value;
-	flag = nick_pass(passw);
 	
 
 	if(passw.length < 6){
 		ok = 0;
 		flag = 0;
 	}
-	else
-		console.log("pass = "+flag);
 	if(!flag){
 		ok = 0;
 		document.getElementById('5').style.display = 'block';
@@ -120,13 +117,24 @@ function validate(){
 		document.getElementById('6').style.display = 'block';
 		console.log("enter same password");
 	}
-	
-	if(!ok)
-		return;
-	
-
-	xmlhttp.open("POST","http://192.168.126.29:8002/regform", false);
-	xmlhttp.send("name=" + name + "&nick=" + nic + "&city=" + city + "&email=" + document.getElementById("email").value + "&pass=" + passw);
-	
+	var digits = document.getElementById("digits").value;
+	if(isNaN(digits))
+		ok = 0;
+	if(ok){
+	console.log("name=" + name + "&nick=" + nic + "&city=" + city + "&email=" + document.getElementById("email").value + "&pass=" + passw + "&digits=" + digits);
+	xmlhttp.open("POST","/regform", false);
+	xmlhttp.send("name=" + name + "&nick=" + nic + "&city=" + city + "&email=" + document.getElementById("email").value + "&pass=" + passw + "&digits=" + digits);
 	document.getElementById('10').style.display = 'block';
+	window.location.href = '/';
+	}
+	else{
+		$('#myModal').modal({
+  keyboard: false
+})
+	}
+	
+		
+	
+	
+	
 }

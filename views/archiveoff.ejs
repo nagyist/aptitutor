@@ -1,0 +1,92 @@
+<% include headeroff %>
+  <style>
+    th {text-align:center}
+  </style>
+    <div style="position:absolute;left:350px;top:90px">
+      <h1><u>Contests</h1>
+    </div>
+   
+    
+
+        
+        <div align="center" style="position:absolute;left:50px;top:190px">
+            <table class = "table table-hover table-bordered table-striped">
+                <col width="110">
+                <col width="180">
+                <col width="180">
+                <col width="180">
+                <col width="180">
+              <thead>
+              <tr>
+                <th>#</th>
+                <th>Contest Name</th>
+                <th>Starting Time</th>
+                <th>Ending Time</th>
+                <th>Standings</th>
+              <tr>
+              </thead>
+              <tbody>
+              <% for(var i = 0; i < contest.length; i++){ %>
+                <% if(new Date(contest[i]["Etime"]).getTime() - new Date() < 0) { %>
+                <tr>
+                <td><%= i + 1%></td>
+                <td><a href="/contest/id/<%=contest[i]["id"]%>" style="text-decoration:none"><u><%=contest[i]["name"]%></a></u></td>
+                <td><%=contest[i]["Stime"].toString().split(" ")[1] + "/" + contest[i]["Stime"].toString().split(" ")[2] + "/" + contest[i]["Stime"].toString().split(" ")[3]  + " " + contest[i]["Stime"].toString().split(" ")[4]%></td>
+                <td><%=contest[i]["Etime"].toString().split(" ")[1] + "/" + contest[i]["Etime"].toString().split(" ")[2] + "/" + contest[i]["Etime"].toString().split(" ")[3] + " " + contest[i]["Etime"].toString().split(" ")[4]%></td>
+                <td><a href = "/contest/ranking/<%=contest[i]["id"]%>">Final Standings</a></td>
+                </tr>
+                <% } %>
+                <% if(new Date(contest[i]["Etime"]).getTime() - new Date() > 0) { %>
+                  <tr class = "danger">
+                <td><%= i + 1%></td>
+                <td><a href="/contest/id/<%=contest[i]["id"]%>" style="text-decoration:none"><u><%=contest[i]["name"]%></a></u></td>
+                <td><%=contest[i]["Stime"].toString().split(" ")[1] + "/" + contest[i]["Stime"].toString().split(" ")[2] + "/" + contest[i]["Stime"].toString().split(" ")[3]  + " " + contest[i]["Stime"].toString().split(" ")[4]%></td>
+                <td><%=contest[i]["Etime"].toString().split(" ")[1] + "/" + contest[i]["Etime"].toString().split(" ")[2] + "/" + contest[i]["Etime"].toString().split(" ")[3]  + " " + contest[i]["Etime"].toString().split(" ")[4]%></td>
+                <td><a href = "/contest/ranking/<%=contest[i]["id"]%>">Final Standings</a></td>
+                </tr>
+              <% } %>
+              <% } %>
+              </tbody>           
+            </table>
+        </div>
+    
+    <div class="panel panel-primary" style="position:absolute;left:1000px;top:100px;width:300px">
+            <div class="panel-heading" align="center">
+              <h3 class="panel-title">Upcoming Rounds</h3>
+            </div>
+            <div class="panel-body" align="center" id = "timer">
+              
+            </div>
+    </div>
+   <div style="position:fixed;top:320px;left:1070px"><h3>Top Rated</h3>
+
+    <div style="position:fixed;left:1000px;top:380px">
+      <table style="width:270px">
+        <tr>
+          <th><p align = "center">#</th>
+          <th><p align = "center">Nick</th>   
+          <th><p align = "center">Rating</th>
+        </tr>
+        <tr>
+    <% for(var i = 1; i <= ranking.length; i += 2){ %>
+          
+          <tr>
+          <td style="background:#F0F0F0;"><%=i%></td>
+          <td style="background:#F0F0F0;"><a href="/users/<%=ranking[i - 1]["nick"]%>"><font color="red"><%= ranking[i-1]["nick"]%></font></a></td>    
+          <td style="background:#F0F0F0;"><%=ranking[i - 1]["rating"]%></td>
+          </tr>
+          
+          <% if (i < ranking.length){ %>
+          <tr>
+          <td><%= i + 1%></td>
+          <td><a href="/users/<%=ranking[i]["nick"]%>" ><font color="red"><%=ranking[i]["nick"] %></font></a></td> 
+          <td><%=ranking[i]["rating"]%></td>
+          </tr>
+          
+          <% }} %>
+    </div>
+    </div>
+
+  </body>
+  
+  <% include footer %>

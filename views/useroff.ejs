@@ -1,0 +1,181 @@
+<% include headeroff %>
+    
+
+    <div class="panel panel-default" style="position:absolute;top:150px;left:80px;width:900px;height:300px">
+      <div class="panel-heading">
+        <h3 class="panel-title"><b><h3><font color="#8B0000"><%= profile[0]["name"] %>'s profile&nbsp&nbsp&nbsp(Rank: <%=rank%>)</font></b></h3></h3>
+      </div>
+      <div class="panel-body">
+        
+        <div style="position:absolute;left:10px;top:85px">
+        <img src = "/image/expert.png">
+        </div>
+
+        <div style="position:absolute;left:250px;top:95px">
+          <h3>Nick: <font color="#B22222"><%= profile[0]["nick"] %></font></h3>
+        </div>
+
+        <div style="position:absolute;left:600px;top:95px">
+          <h3>City: <font color="#B22222"><%=profile[0]["city"] %></font></h3>
+        </div>
+
+        <div style="position:absolute;left:250px;top:145px">
+          <h3>Rating(Highest): <font color="#B22222"><%=profile[0]["rating"] %>(<%=profile[0]["high"] %>)</font></h3>
+        </div>
+
+        <div style="position:absolute;left:600px;top:145px">
+          <h3>Contests: <font color="#B22222"><%=profile[0]["contest"] %></font></h3>
+        </div>
+
+        <div style="position:absolute;left:250px;top:195px">
+          <h3>Problems Solved: <font color="#B22222"><%=profile[0]["problem"] %></font></h3>
+        </div>
+
+        <div style="position:absolute;left:600px;top:195px">
+          <h3>Accuracy: <font color="#B22222"><%=profile[0]["accuracy"] %>%</font></h3>
+        </div>
+
+      </div>
+    </div>
+    
+
+    
+    <div class="container-fluid">
+      <div class="row">
+
+        <div class="col-sm-15 col-sm-offset-10 col-md-0 col-md-offset-2 main" style="position:absolute;top:500px;left:-130px;width:900px">
+          
+
+          <h2 class="sub-header" align="center"><u>User Statistics</h2></u><br>
+          <div class="table-responsive">
+            <table class="table table-striped">
+            <col width="10">
+            <col width="20">
+            <col width="20">
+            <col width="20">
+            <col width="20">
+            <col width="10">
+              <thead>
+                <tr>
+                  <th><p align = "center">S.No.</th>
+                  <th><p align = "center">Contest</p></th>
+                  <th><p align = "center">Rank</th>
+                  <th><p align = "center">Attempted</th>
+                  <th><p align = "center">Score</th>
+                  <th><p align = "center">Rating Change</th>
+                </tr>
+              </thead>
+              <tbody>
+                <% for(var i = 1; i <= contest.length; i += 2){ %>
+                  <tr>
+                  <td style="background:#F0F0F0;"><%=i%></td>
+                  <td style="background:#F0F0F0;"><a href="/contest/id/<%=contest[i-1]["contest_id"]%>" style="text-decoration:none"> <%=contest[i-1]["name"]%></a></td>                  
+                  <td style="background:#F0F0F0;"><a href="/contest/ranking/<%=contest[i-1]["contest_id"]%>" style="text-decoration:none"> <%=contest[i-1]["rank"]%></a></td>  
+                  <td style="background:#F0F0F0;"><%=contest[i-1]["attempted"]%></td>
+                  <td style="background:#F0F0F0;"><%=contest[i-1]["solved"]%></td>
+                  <td style="background:#F0F0F0;"><%=contest[i-1]["ratchange"]%></td>
+                </tr>
+                
+          
+                <% if (i < contest.length){ %>
+                  <tr>
+                  <td><%=i + 1%></td>
+                  <td><a href="/contest/id/<%=contest[i]["contest_id"]%>"><%=contest[i]["name"]%></a></td>
+                  <td><a href="/contest/ranking/<%=contest[i]["contest_id"]%>"> <%=contest[i]["rank"]%></a></td> 
+                  <td><%=contest[i]["attempted"]%></td>
+                  <td><%=contest[i]["solved"]%></td>
+                  <td><%=contest[i]["ratchange"]%></td>
+                </tr>
+          
+                <% }} %>             
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="panel panel-primary" style="position:fixed;left:1000px;top:150px;width:280px">
+            <div class="panel-heading" align="center">
+              <h3 class="panel-title">Upcoming Rounds</h3>
+            </div>
+            <div class="panel-body" align="center" id = "timer">
+              
+            </div>
+    </div>
+
+    
+    
+
+    
+
+
+  </body>
+ <script type = "text/javascript">
+  var c = parseInt(<%= time %>);
+  var no_of_contest = (<%= upcoming.length - 1%>);
+  
+
+  var time = new Date().getTime();
+  var finish = c + time;
+  if(c == -111000001010)
+    document.getElementById("timer").innerHTML = "No Upcoming Contest";
+  else{
+
+      GetCount(c);
+  }
+       function GetCount(amount){
+  //console.log(amount);
+        if(amount < 0){
+      
+          document.getElementById("timer").innerHTML = '<a href="/contest/id/<%=upcoming[0]["id"]%>">Contest Started</a>';
+        }
+  
+  else{
+    var amount = finish - new Date().getTime();
+    days = 0;hours = 0;mins = 0;secs = 0;out = "";
+    currd = 0; currhr = 0; currmin = 0; currsec = 0; currt = "";
+    amount = Math.floor(amount/1000);
+    days=Math.floor(amount/86400);
+    amount %= 86400;
+          
+    hours = Math.floor(amount/3600);
+    amount %= 3600;
+          
+    mins = Math.floor(amount/60);
+    amount %= 60;
+          
+    secs=Math.floor(amount);
+          
+    if(days != 0){out += days +" day"+((days!=1)?"s":"")+": ";}
+    if(days != 0 || hours != 0){out += hours +" hr"+((hours!=1)?"s":"")+": ";}
+    if(days != 0 || hours != 0 || mins != 0){out += mins +" min"+((mins!=1)?"":"")+": ";}
+    out += secs +" sec";
+
+    
+    
+    if(no_of_contest == 0)
+      out = '<a href="/contest/id/<%=upcoming[0]["id"]%>" > <h4><u><%= upcoming[0]["name"]%></u></a></h4><br> Starts In:<h4>' + out + '</h4>';
+
+    if(no_of_contest > 0)
+      out = '<a href="/contest/id/<%=upcoming[0]["id"]%>" > <h4><u><%= upcoming[0]["name"]%></u></a></h4>' + '<h4><a href = "/Contests">and ' + no_of_contest + ' more.. </a></h4>' + '<br> Starts In:<h4>' + out + '</h4>';
+    document.getElementById('timer').innerHTML = out;
+        
+    setTimeout("GetCount("+amount+")", 1000);
+  }
+}
+    function closee(){
+      document.getElementById('tab').style.display = 'none';
+    }
+    </script>
+    <script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-52998190-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+</html>

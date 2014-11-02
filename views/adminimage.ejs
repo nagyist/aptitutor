@@ -1,0 +1,60 @@
+<% include header %>
+
+<div style="position:absolute;left:500px;top:75px">
+   	<h2><u>Image Contest Creator!</u></h2>
+</div>
+
+<div id = "contestCred" style = "display:block;position:absolute;left:400px;top:200px">
+
+	<div class="form-group">
+
+		<label for = "contestName">Enter Contest Name</label>
+		<input type = "text" class = "form-control" id = "contestName" size = "35px">
+		<p id = "info1" style = "color:Red">Miniumum Length : 5, Don't use " ' ". </p>
+	</div>
+	<div class="form-group">
+		<label for = "sTime">Enter Starting Time</label>
+		<input type = "text" class = "form-control" id = "sTime" size = "35px">
+		<p id = "info2" style = "color:Red">Example Date Format : Sun Jun 29 2014 23:30:00 GMT+0530 (IST)</p>
+	</div>
+	<div class="form-group">
+		<label for = "eTime">Enter Ending Time</label>
+		<input type = "text" class = "form-control" id = "eTime" size = "35px">
+		
+	</div>
+	<button type = "button" id = "createContest" class="btn btn-danger">Create Contest!</button>
+	<button type = "button" id = "addQ" class="btn btn-danger">Add Questions!</button>
+</div>
+	<div id = "addConsole" style = "display:none;position:absolute;left:400px;top:200px">
+         <h3><p id = 'data'></p></h3>
+        <div class="form-group">
+            <label for="Question">Enter Question</label>
+                <textarea class="form-control" id="Question" cols = "80" placeholder="Enter Question"></textarea>
+        </div>
+        <div class="form-group">
+            <label for="url">Enter Url:</label>
+            <input type = "text" class="form-control" id="url" placeholder="Enter Url:"></textarea>
+        </div>
+        <div class="form-group">
+            <label for="ans">Enter Answer</label>
+            <input type = "text" class="form-control" id="ans" placeholder="Enter Answer:"></textarea>
+        </div>
+        
+                <div class="form-group">
+                    <div class="col-sm-offset-2 col-sm-10">
+                        <button id = "submit1" class="btn btn-default">Submit Question!</button>
+                    </div>
+                </div>
+                <br>
+                <div style = "color:red">
+                    <h3><p id = "valid"></p></h3>
+                </div>
+            
+        </div>
+
+
+</body>
+<script type="text/javascript" src="http://caja.appspot.com/html-css-sanitizer-minified.js"></script>
+<script src="/socket.io/socket.io.js"></script>
+<script src="js/verify2.js"></script>
+</html>

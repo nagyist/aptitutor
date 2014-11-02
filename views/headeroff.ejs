@@ -11,9 +11,10 @@
   </script>
     <style>
       table,th,td{
-        border:1px solid gray;
-        border-collapse:collapse;
         text-align:center;
+        
+        border-collapse:collapse;
+        
       }
       th,td{
         padding:5px;
@@ -36,7 +37,7 @@
   <title>Aptitutor</title>
 
    
-    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="../../css/bootstrap.min.css" rel="stylesheet">
     
 
   </head>
@@ -57,17 +58,18 @@
          
         </div>
         
-        <div class="navbar-collapse collapse" style="position:fixed;top:-5px;left:250px">
+        <div class="navbar-collapse collapse" style="position:fixed;top:-5px;left:300px">
           <ul class="nav navbar-nav">
             <li><a href="/ranking/page/1"><h4>Rankings<h4></a></li>
-            <li><a href="/past"><h4>Archive</h4></a></li>
+            <li><a href="/Contests"><h4>Contests</h4></a></li>
 
-            <li><a href="/contest"><h4>Contests<h4></a></li>
+            <li><a href="/Practice"><h4>Practice<h4></a></li>
+            
           </ul>
         </div>
 
         <div class="navbar-collapse collapse">
-          <form class="navbar-form navbar-right" role="form" method = "post" action = "/loginform">
+          <form class="navbar-form navbar-right" role="form" method = "post" action = "/loginform1">
             <div class="form-group">
               <input id = "nick" type="text" placeholder="Nickname" class="form-control" name = "nick">
             </div>
@@ -80,3 +82,4 @@
         </div>
       </div>
     </div>
+    
